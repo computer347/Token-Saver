@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-28T18:46:50",
+  "time": "2026-10-28T19:16:58",
   "mode": "full",
   "dry_run": false,
   "ok": false,
@@ -120,10 +120,10 @@
       "cache_write_5m": 0
     },
     "transcript_usage": {
-      "cache_write_1h": 0,
       "output": 0,
-      "cache_write": 0,
+      "cache_write_1h": 0,
       "cache_read": 0,
+      "cache_write": 0,
       "cache_write_5m": 0,
       "input": 0
     },
