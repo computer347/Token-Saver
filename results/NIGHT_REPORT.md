@@ -1,286 +1,704 @@
-# Night report — confirm
+# Night report — full
 
-- Model claude-opus-5-5 · battery v8-confirm
-- Started 2026-10-28 06:30, ended 07:32
-- Runs this session: 149 (ok: 134, task_fail: 15)
-- Stop reason: plan complete
-- Progress for this mode: 621 of 636 completed runs in the log
+- Model claude-opus-5-5 · battery v8
+- Started 2026-10-28 11:25, ended 13:02
+- Runs this session: 502 (ok: 460, task_fail: 39, limit: 3)
+- Stop reason: hit the usage limit; re-run the same command after the reset to resume
+- Progress for this mode: 757 of 1368 completed runs in the log
 
 ## This session, per arm
 
 | Arm | Runs | Successes | Mean weighted tokens | SD | Median API-equivalent $ |
 | --- | --- | --- | --- | --- | --- |
-| A0 | 25 | 24 | 93,495 | 167,294 | 0.16 |
-| A0b | 25 | 22 | 91,961 | 160,742 | 0.16 |
-| P1 | 25 | 24 | 91,114 | 156,491 | 0.19 |
-| X1 | 25 | 21 | 90,411 | 181,192 | 0.14 |
-| X2 | 26 | 23 | 93,342 | 168,746 | 0.18 |
-| X3 | 23 | 20 | 38,690 | 12,065 | 0.14 |
+| A10 | 36 | 33 | 47,647 | 19,788 | 0.17 |
+| A11 | 35 | 33 | 44,191 | 15,493 | 0.16 |
+| A12 | 36 | 32 | 47,176 | 20,166 | 0.17 |
+| A13 | 36 | 32 | 67,306 | 28,924 | 0.15 |
+| A2 | 35 | 33 | 40,248 | 14,595 | 0.15 |
+| A3 | 36 | 34 | 43,669 | 16,519 | 0.16 |
+| A4 | 36 | 32 | 42,942 | 16,263 | 0.16 |
+| A6a | 35 | 32 | 43,416 | 16,752 | 0.16 |
+| A6b | 36 | 34 | 68,545 | 32,833 | 0.26 |
+| A8 | 35 | 35 | 43,564 | 14,943 | 0.17 |
+| A9 | 36 | 34 | 34,806 | 13,270 | 0.12 |
+| A9m | 35 | 31 | 44,449 | 18,002 | 0.15 |
+| X1 | 36 | 33 | 37,274 | 17,852 | 0.14 |
+| X3 | 36 | 32 | 41,365 | 14,931 | 0.15 |
 
 ## Flags
 
-- 20261028-063014-A0b-B1-v1-r4-e15229: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Force; python --version; python -m pytest --version", "description": "Inspect project and tool versions"}`
-- 20261028-063014-A0b-B1-v1-r4-e15229: 4 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"$(mktemp -d)\" && P=\"$OLDPWD\"; export PYTHONPATH=\"$P\"; H=\"python -m homeledger.cli --data l.db\"\n$H account add chk Checking; `
-  - `Bash: {"command": "D=$(mktemp -d); H=\"python -m homeledger.cli --data $D/l.db\"; $H account add chk Checking; $H add chk 5.1.2026 -1234,50 Shop --category `
-  - `Bash: {"command": "python -m homeledger.cli --data /tmp/hl-demo.db account add chk Checking; python -m homeledger.cli --data /tmp/hl-demo.db add chk 5.1.202`
-  - `Bash: {"command": "ls /tmp/hl-demo.db 2>/dev/null || echo \"none\"", "description": "Check for a leftover scratch ledger"}`
-- 20261028-063014-X2-B1-v1-r4-980279: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Force | Select-Object Name; python --version; python -m pytest --version", "description": "List project files and check Py`
-- 20261028-063014-X2-B1-v1-r4-980279: 3 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"$(mktemp -d)\" && L=ledger.json; P=\"python -m homeledger.cli --data $L\"; export PYTHONPATH=\"C:/Users/mikbs/AppData/Local/Temp/tb-`
-  - `Bash: {"command": "D=$(mktemp -d); export PYTHONPATH=$PWD; L=$D/ledger.json\npython -m homeledger.cli --data $L account add chk Checking\npython -m homeledg`
-  - `Bash: {"command": "python -m homeledger.cli --data ../smoke-ledger.json account add chk Checking\npython -m homeledger.cli --data ../smoke-ledger.json add c`
-- 20261028-063014-A0-B1-v1-r4-f6d32f: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -c \"import argparse,inspect;src=inspect.getsource(argparse);import re;[print(l) for l in src.splitlines() if 'negative_number' in`
-  - `Bash: {"command": "python -c \"import argparse; print(argparse.__file__)\"", "description": "Locate the argparse module file"}`
-- 20261028-064115-A0b-T3-v1-r4-ad4595: 4 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-h7vudjw7/work\" && mkdir -p /tmp/eqchk && git show HEAD:taskbench_app/reports.py > taskbench_ap`
-  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.py; python ..\\eqchk\\chk.py .; Remove-Item t`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-h7vudjw7/work\" && git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py && py`
-  - `Bash: {"command": "python ../eqchk/chk.py .", "description": "Run old-vs-new equivalence check"}`
-- 20261028-064242-A0-T3-v1-r4-c2609a: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Remove-Item -Recurse -Force taskbench_app/__pycache__, tests/__pycache__; git status --short", "description": "Remove pytest-generated ca`
-- 20261028-064351-X1-T3-v1-r4-f73997: 8 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-u79c90cs/work\" && ls -R | grep -v __pycache__ | head -50 && grep -rn \"reports\" --include=*.p`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-u79c90cs/work\" && python -m pytest -q 2>&1 | tail -3 && mkdir -p \"$TEMP/eqchk\" && git show H`
-  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 2; $d = \"C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-u79c90cs\\eqchk\"; (git show HEAD:tas`
-  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 2; $d = \"C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-u79c90cs\\eqchk\"; git show HEAD:task`
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -2; D=\"C:/Users/mikbs/AppData/Local/Temp/tb-u79c90cs/eqchk\"; git show HEAD:taskbench_app/reports.py | s`
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -2; git show HEAD:taskbench_app/reports.py | sed 's/from \\.utils/from taskbench_app.utils/' > C:/Users/m`
-  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-u79c90cs\\eqchk\\check.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-u79c90cs\\work; gi`
-  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-u79c90cs\\eqchk\\check.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-u79c90cs\\work", "`
-- 20261028-064525-X2-T5-v2-r4-e07794: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-qaiuy42k/work\" && git ls-files && cat taskbench_app/reports.py && ls tests && cat tests/*.py |`
-- 20261028-064046-P1-B1-v1-r4-5bd9a5: 3 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-i2xrw_5_/work\" && D=$(mktemp -d)/l.json && export PYTHONIOENCODING=utf-8 && python -m homeledg`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-i2xrw_5_/work\" && export PYTHONIOENCODING=utf-8 && D=\"$TEMP/hl-smoke.json\" && rm -f \"$D\" &`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-i2xrw_5_/work\" && export PYTHONIOENCODING=utf-8 && python -m homeledger.cli --data smoke.json `
-- 20261028-064054-X1-B1-v1-r4-f735fa: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-xan1svgc/work\" && sed -i 's/_list(doc, \"accounts\"):\\n        if not isinstance(account/X/' `
-- 20261028-065230-P1-T8-v3-r4-ac299b: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-n5knc3gg/work\" && git ls-files && cat taskbench_app/models.py && ls tests 2>/dev/null && cat t`
+- 20261028-112522-A9-T2-v3-r1-6c0dfd: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git ls-files; Get-ChildItem tests -ErrorAction SilentlyContinue | Select -First 3 | % { $_.Name }"}`
+- 20261028-112522-A11-T2-v3-r1-d2a421: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-7urj4fjr/work\" && ls taskbench_app tests && cat taskbench_app/validation.py && head -30 tests/`
+- 20261028-112548-A9m-T2-v3-r1-c4a3a8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-6l6ezmko/work\" && git ls-files && cat pyproject.toml setup.cfg 2>/dev/null; ls tests 2>/dev/nu`
+- 20261028-112555-X1-T2-v3-r1-c952ae: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-7wwu3xe5/work && git ls-files && cat *.toml *.cfg 2>/dev/null | head -50; ls tests 2>/dev/null; h`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-7wwu3xe5/work ls-files", "description": "List tracked files"}`
+- 20261028-112617-A12-T2-v3-r1-21a0aa: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-gt33lqea/work\" && git ls-files && cat tools/scaffold.py | head -80 && ls tests && cat pyprojec`
+- 20261028-112659-A6a-T2-v3-r1-714d62: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-mao38xkn/work\" && git ls-files && cat pyproject.toml 2>/dev/null; ls tests 2>/dev/null | head"`
+- 20261028-112704-A10-T2-v3-r1-d070cf: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-r5g1bll6/work\" && git ls-files && cat pyproject.toml setup.cfg 2>/dev/null; ls tests 2>/dev/nu`
+- 20261028-112739-A2-T2-v3-r1-319ee1: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-vsbd8hlh/work\" && git ls-files && cat pyproject.toml 2>/dev/null; ls tests 2>/dev/null; head -`
+- 20261028-112743-A3-T2-v3-r1-3cd071: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-x90yogrn/work\" && git ls-files && cat pyproject.toml 2>/dev/null; ls tests 2>/dev/null && head`
+- 20261028-112925-A6b-T1-v2-r1-ee5029: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-ChildItem -Recurse -File -Exclude *.pyc | Where-Object { $_.FullName -notmatch '\\\\.git\\\\' } | Select-Object -ExpandProperty FullN`
+- 20261028-112932-A9-T1-v2-r1-af58df: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git ls-files; if (Test-Path package.json) { cat package.json }"}`
+- 20261028-112941-X3-T1-v2-r1-6afbe9: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 5; python -c \"from taskbench_app.parsing import parse_amount as p; print(p('12,50'), p('1`
+- 20261028-112951-X1-T1-v2-r1-013e0e: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-unq3apb3/work\" && git ls-files && cat package.json 2>/dev/null; ls", "description": "List repo`
+- 20261028-112958-A4-T1-v2-r1-9241fd: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "git ls-files && cat $(git ls-files | grep -v -i test | head -20)", "description": "List files and show source"}`
+- 20261028-113024-A9m-T1-v2-r1-8ef344: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3 && python -c \"from taskbench_app.parsing import parse_amount as p; print(p('1,234.50'), p('1.234,50')`
+- 20261028-113052-A2-T1-v2-r1-d479a2: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-fw86976b/work\" && git ls-files && cat package.json 2>/dev/null; ls", "description": "List repo`
+- 20261028-113101-A11-T1-v2-r1-6f843a: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-izwxhe1u/work\" && (python3 -m pytest -q 2>&1 || python -m pytest -q 2>&1) | tail -40", "descri`
+- 20261028-113216-A11-T7-v3-r1-40e0e9: 2 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-ChildItem -Recurse -File -Exclude *.pyc | ? { $_.FullName -notmatch '\\\\.git\\\\' } | % FullName; Get-Content taskbench_app\\cli.py,`
+  - `Bash: {"command": "python - <<'EOF'\np='taskbench_app/cli.py'\ns=open(p,encoding='utf-8').read()\ns=s.replace('''from .reports import''','''from .parsing im`
+- 20261028-113215-X3-T7-v3-r1-7d3731: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"$TMP\" && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,\u20ac1,234.50,rent\\n2026-13-01,1,x\\n' > \"$d/b.csv\" && cd `
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-demo\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -Encoding utf8 \"$d\\b.csv\" `
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-import-demo\\l.json import C:\\Users\\mikbs\\AppData\\Loc`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger /c/Users/mikbs/AppData/Local/Temp/tb-import-check-7d3731/l.json import /c/Users/mikbs/AppData/Local/`
+- 20261028-113218-A6a-T7-v3-r1-de6e91: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-ga5sl8dy/work\" && python -m pytest -q 2>&1 | tail -5 && d=$(mktemp -d) && printf 'date,amount,`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tbimport\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -Encoding ascii \"$d\\b.csv\" \"dat`
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ga5sl8dy && mkdir -p tbimport && printf 'date,amount,category\\n2026-03-01,4,tea\\n2026-13-01,1,x`
+  - `Bash: {"command": "mkdir -p C:/Users/mikbs/AppData/Local/Temp/tb-ga5sl8dy/tbimport && printf 'date,amount,category\\n2026-03-01,4,tea\\n2026-13-01,1,x\\n' >`
+- 20261028-113326-A9-T7-v3-r1-071e00: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-ntncxdw2/work\"; git ls-files; cat taskbench_app/cli.py; grep -n \"def \\|raise\" taskbench_app`
+- 20261028-113321-A9m-T7-v3-r1-069f62: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-8mc5glsq/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,1,x\\n2026-13-01,1,y\\n' > $d/b.csv; python -m taskbench_app.cli --ledger $d/l.`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tbimport\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-01-05,1,x`n2026-13`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger ../scratch/l.json import ../scratch/b.csv; echo \"exit=$?\""}`
+  - `Bash: {"command": "rm -r ../scratch"}`
+- 20261028-113414-A2-T7-v3-r1-5b1eb2: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-9r908m7i/work\" && python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\`
+- 20261028-113407-A12-T7-v3-r1-cf2ff5: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-22qmhb8c/work\" && (python3 tools/scaffold.py cli-command import || python tools/scaffold.py cl`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-check\"; Set-Content -Encoding utf8 \"$d\\b.csv\" \"date,amount,category`n2026-`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-22qmhb8c/work\"; d=$(mktemp -d); printf '\\xef\\xbb\\xbfdate,amount,category\\n2026-01-05,12.50`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-22qmhb8c/work\"; mkdir -p /tmp/impchk; printf '\\xef\\xbb\\xbfdate,amount,category\\n2026-01-05`
+- 20261028-113429-A10-T7-v3-r1-2b8075: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-mtn2ov_6/work\" && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head `
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-mtn2ov_6/work\" ls-files", "description": "List tracked files"}`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-check\"; Set-Content -Encoding utf8 \"$d\\b.csv\" \"date,amount,category`n2026-`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,3,food\\n2026-13-01,1,x\\n' > \"$d/b.csv\"; python -m taskbench_app.cli --ledge`
+- 20261028-113503-A4-T7-v3-r1-708714: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-e377nrb4/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-e377nrb4/work ls-files", "description": "List tracked files"}`
+- 20261028-113527-A3-T7-v3-r1-c1680f: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-evx4kxgw/work\" && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head `
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-evx4kxgw/work\" ls-files", "description": "List tracked files"}`
+- 20261028-113515-A13-T7-v3-r1-694954: 3 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; \"2026-03-01,5,food`nbad`n\" | Out-File -Encoding utf8 $env:TEMP\\imp.csv; python -m taskbench_app.cli --ledger $env`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-919njc9u/work\" && python -m pytest -q 2>&1 | tail -3; d=$(mktemp -d); printf '\\xef\\xbb\\xbfD`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-919njc9u/work\" && python -m pytest -q 2>&1 | tail -3 && mkdir -p /tmp/impsmoke && printf '\\xe`
+- 20261028-113549-A6b-T7-v3-r1-eea530: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in taskbench_app/parsing.py taskbench_app/storage.py taskbench_app/validation.py taskbench_app/models.py taskbench_app/utils.py tes`
+  - `Bash: {"command": "cd \"$(mktemp -d)\" && printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-02-30,1,x\\n' > b.csv && PYTHONPATH=\"C:/Users/mikbs/A`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"imp-check\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-01-05,12.50,food``
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-5kk8mayu\\imp-check\\l.json import C:\\Users\\mikbs\\AppD`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-5kk8mayu\\imp-check\\l.json import C:\\Users\\mikbs\\AppD`
+- 20261028-113627-X1-T7-v3-r1-fa3ff9: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-325tsgz2/work && cat tests/conftest.py tests/test_cli.py README.md .claude/settings.json; python `
+  - `Bash: {"command": "cd /tmp && rm -rf imp && mkdir imp && printf 'date,amount,category\\n2026-01-05,3,food\\n2026-13-01,1,x\\n' > imp/a.csv && PYTHONPATH=\"C`
+- 20261028-113630-A8-T3-v3-r1-dc24c2: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-0ddrepbs/work\" && cat tests/test_reports.py && grep -n \"top\\|-n\" taskbench_app/cli.py && py`
+  - `PowerShell: {"command": "python -m pytest -q; git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 \"$env:TEMP\\old_reports.py\"\n$script = @'\nimport`
+  - `PowerShell: {"command": "python -m pytest -q; python ..\\equiv_check.py", "description": "Run tests and old-vs-new equivalence check"}`
+  - `PowerShell: {"command": "python ..\\equiv_check.py", "description": "Compare old and new reports outputs"}`
+- 20261028-113716-A3-T3-v3-r1-f04ebf: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force taskbench_app/__pycache__, tests/__pycache__ -Confirm:$false; git status --short", "description": "Remove tes`
+- 20261028-113732-X3-T3-v3-r1-162df9: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-zb3enww_/work\" && git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py && py`
+- 20261028-113720-A11-T3-v3-r1-d49391: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-z7hoa6hf/work\" && cat taskbench_app/utils.py && ls tests && grep -rn \"reports\\|top_categorie`
+  - `Bash: {"command": "python -m pytest -q && mkdir -p /tmp/cmp && git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py && cat > /tmp/cmp/cmp.`
+  - `PowerShell: {"command": "python -m pytest -q; python ..\\cmp\\cmp.py \"$PWD\"; git status --short", "description": "Run tests, equivalence check, and git status"}`
+  - `PowerShell: {"command": "python -m pytest -q; python ..\\cmp\\cmp.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-z7hoa6hf\\work; git status --short", "description"`
+  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-z7hoa6hf\\cmp\\cmp.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-z7hoa6hf\\work", "desc`
+- 20261028-113818-A4-T3-v3-r1-6852e8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-khus_81x/work\" && mkdir -p /tmp/eqchk/old && git show HEAD:taskbench_app/reports.py > /tmp/eqc`
+- 20261028-113804-A12-T3-v3-r1-7f678a: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3\nmkdir -p /tmp/eqchk && git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py && cat `
+  - `PowerShell: {"command": "python -m pytest -q | Select-Object -Last 3; git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.`
+  - `PowerShell: {"command": "python -m pytest -q | Select-Object -Last 3; git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.`
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3 && git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py && PYTHONPATH=. python /c/Us`
+  - `Bash: {"command": "PYTHONPATH=. python /c/Users/mikbs/AppData/Local/Temp/eqchk/chk.py", "description": "Compare old and new outputs on random inputs"}`
+- 20261028-113828-A9m-T3-v3-r1-7ea1cc: 6 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-4i84ntut/work\" && mkdir -p \"$TEMP/eqcheck\" && git show HEAD:taskbench_app/reports.py > taskb`
+  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.py; python ..\\eqcheck\\eq.py \"$PWD\"; Remov`
+  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.py; python ..\\eqcheck\\eq.py (Get-Location).`
+  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.py; python ..\\eqcheck\\eq.py .; Remove-Item `
+  - `Bash: {"command": "git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py; python ../eqcheck/eq.py .; rm taskbench_app/_old_reports.py; pyth`
+  - `PowerShell: {"command": "python ..\\eqcheck\\eq.py .", "description": "Compare old and new reports outputs on random inputs"}`
+- 20261028-113853-A2-T3-v3-r1-1002e0: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-gl3o6yz5/work\" && mkdir -p /tmp/eqchk && git show HEAD:taskbench_app/reports.py > taskbench_ap`
+  - `PowerShell: {"command": "python ..\\eqchk\\chk.py (Get-Location).Path; git status --short", "description": "Run equivalence check and show git status"}`
+  - `PowerShell: {"command": "python ..\\eqchk\\chk.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-gl3o6yz5\\work; git status --short", "description": "Run equivalence `
+  - `PowerShell: {"command": "python ..\\eqchk\\chk.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-gl3o6yz5\\work", "description": "Run old-vs-new equivalence check"}`
+- 20261028-113933-A13-T3-v3-r1-1683f0: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-dcy72pp0/work\" && git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py && py`
+- 20261028-113900-A6b-T3-v3-r1-3d4e3d: 6 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app\\_old_reports.py\n@'\nimport random, `
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-_hxtjzwj/work\" && python -m pytest -q; mkdir -p /tmp/rcmp/oldpkg && git show HEAD:taskbench_ap`
+  - `PowerShell: {"command": "python ..\\rcmp\\cmp.py (Get-Location).Path; Remove-Item -Recurse -Force ..\\rcmp -Confirm:$false; git status --short", "description": "C`
+  - `PowerShell: {"command": "python ..\\rcmp\\cmp.py .; Remove-Item -Recurse -Force ..\\rcmp -Confirm:$false; git status --short", "description": "Compare old vs new,`
+  - `PowerShell: {"command": "python ..\\rcmp\\cmp.py .; git status --short", "description": "Compare old vs new behaviour, show status"}`
+  - `PowerShell: {"command": "python ..\\rcmp\\cmp.py .", "description": "Compare old vs new reports behaviour"}`
+- 20261028-114006-X1-T3-v3-r1-1a7ae3: 6 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ym6rxohy/work && git ls-files && grep -rn \"reports\" --include=*.py . | grep -v \"^./taskbench_a`
+  - `PowerShell: {"command": "git ls-files; Get-Content taskbench_app/utils.py; Select-String -Path tests/*.py,taskbench_app/*.py -Pattern \"reports|top_categories|tot`
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ym6rxohy/work && git show HEAD:taskbench_app/reports.py > \"$TEMP/old_reports.py\" && sed -i 's/f`
+  - `PowerShell: {"command": "python ..\\eqcheck\\eq.py $PWD", "description": "Run old-vs-new equivalence check"}`
+  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-ym6rxohy\\eqcheck\\eq.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-ym6rxohy\\work", "d`
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force taskbench_app/__pycache__, tests/__pycache__ -Confirm:$false; git status --short", "description": "Remove pyt`
+- 20261028-114048-A6a-T3-v3-r1-982756: 2 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "(Get-Content taskbench_app/reports.py | Measure-Object -Line).Lines; Get-ChildItem -Recurse -Name tests* | Select-Object -First 20", "des`
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3\ngit show HEAD:taskbench_app/reports.py > /tmp/old_reports.py\npython - <<'EOF'\nimport random, sys, i`
+- 20261028-114027-A10-T3-v3-r1-9c874d: 7 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-rd0z8rs4/work && git ls-files && grep -rn \"reports\" --include=*.py . | grep -v \"^./taskbench_a`
+  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-rd0z8rs4/work; python -m pytest -q 2>&1 | tail -2; mkdir -p /tmp/eqchk && git show HEAD:taskbench`
+  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-rd0z8rs4/work; python -m pytest -q 2>&1 | tail -2; git show HEAD:taskbench_app/reports.py > taskb`
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -2; git show HEAD:taskbench_app/reports.py > taskbench_app/_old_reports.py; PYTHONPATH=. python /c/Users/`
+  - `Bash: {"command": "git show HEAD:taskbench_app/reports.py | sed 's/^from \\.utils/from taskbench_app.utils/' > /c/Users/mikbs/AppData/Local/Temp/eqchk_repor`
+  - `PowerShell: {"command": "$env:PYTHONPATH = (Get-Location).Path; python C:\\Users\\mikbs\\AppData\\Local\\Temp\\eqchk_reports_9c874d\\chk.py; git status --short"}`
+  - `Bash: {"command": "PYTHONPATH=. python /c/Users/mikbs/AppData/Local/Temp/eqchk_reports_9c874d/chk.py"}`
+- 20261028-114203-A12-T1-v1-r1-6af562: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-u1ckaxyy/work\" && cat taskbench_app/parsing.py tests/test_parsing.py; grep -rn \"parse_amount\`
+- 20261028-114213-A9-T1-v1-r1-9775ce: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-1pmni5a4/work; ls; python -m pytest -q 2>&1 | tail -30"}`
+- 20261028-114217-A6a-T1-v1-r1-337dfd: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-6k6rk0e0/work\" && ls && git ls-files | head -50", "description": "List project files"}`
+- 20261028-114240-A13-T1-v1-r1-1c25fb: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-k2fwgqza/work\" && ls && (ls tests test 2>/dev/null); cat package.json 2>/dev/null | head -30",`
+- 20261028-114246-X1-T1-v1-r1-469528: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-3g4yi4d5/work\" && git ls-files | head -50 && cat package.json pyproject.toml 2>/dev/null | hea`
+- 20261028-114259-A3-T6-v1-r1-904949: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-j69dua3o/work && git ls-files && grep -rn \"date\" --include=*.py . | head -50"}`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-j69dua3o/work ls-files"}`
+- 20261028-114307-A6b-T6-v1-r1-0d8b2a: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py -q; python -m pytest -q 2>&1 | Select-Object -Last 4; git stash pop -q; git diff --stat", "des`
+- 20261028-114412-A13-T6-v1-r1-a78fd1: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py -q; python -m pytest -q 2>&1 | Select-Object -Last 3; git stash pop -q; git diff --stat", "des`
+- 20261028-114443-A11-T6-v1-r1-8a683c: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-oz_8k8eo/work; ls -R | grep -v pyc; cat taskbench_app/validation.py 2>/dev/null || find . -name v`
+- 20261028-114448-A2-T6-v1-r1-7142d1: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-aid1_b20/work\" && git ls-files && grep -rn \"date\" --include=*.py . | head -50", "description`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-aid1_b20/work\" ls-files", "description": "List tracked files"}`
+- 20261028-114525-A8-T6-v1-r1-23cb1f: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash -q; python -m pytest -q tests/test_validation.py 2>&1 | Select-Object -Last 3; git stash pop -q", "descrip`
+- 20261028-114520-A4-T6-v1-r1-052b32: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-mk2ynfaj/work && git ls-files && grep -rn \"date\" --include=*.py . | head -50"}`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-mk2ynfaj/work ls-files"}`
+- 20261028-114557-A10-T6-v1-r1-7f524c: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-58d54n9f/work\" && git ls-files && cat CLAUDE.md README* 2>/dev/null | head -50"}`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-58d54n9f/work\" ls-files"}`
+- 20261028-114603-A9m-T6-v1-r1-eac0c5: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-oaewcw79/work && git ls-files && cat README* 2>/dev/null | head -30", "description": "List repo f`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-oaewcw79/work ls-files", "description": "List repo files"}`
+- 20261028-114613-A12-T6-v1-r1-ca67d8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-aeyj9_23/work && git ls-files && grep -rn \"date\" --include=*.py . | grep -v \"^./tests\" | head`
+- 20261028-114651-X1-T6-v1-r1-5bb8cc: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -5 && git stash -q && python -m pytest -q 2>&1 | tail -3; git stash pop -q && git status --short", "descr`
+- 20261028-114704-A11-T3-v1-r1-132822: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-lm_mnbsq/work\" && (python3 -m pytest -q 2>&1 || python -m pytest -q 2>&1) | tail -5; git statu`
+  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app/_old_reports.py\n@'\nimport random, types\nfrom taskbench_`
+  - `PowerShell: {"command": "@'\nimport random, subprocess, types, sys\nfrom taskbench_app import reports as new\nsrc = subprocess.run([\"git\",\"show\",\"HEAD:taskbe`
+  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-lm_mnbsq\\equiv_check\\check.py", "description": "Run old-vs-new equivalence check"}`
+- 20261028-114736-A10-T3-v1-r1-be8da1: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-hng73tc2/work && ls -R | head -50 && grep -rn \"reports\" --include=*.py . | head -30", "descript`
+- 20261028-114746-A3-T3-v1-r1-53cc9e: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-gtqgz27z/work && ls -R | head -50 && grep -rn \"reports\" --include=*.py . | head -30", "descript`
+  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-gtqgz27z/work; python -m pytest -q 2>&1 | tail -5\nmkdir -p /tmp/rdiff && git show HEAD:taskbench`
+  - `Bash: {"command": "python -I C:/Users/mikbs/AppData/Local/Temp/rdiff/check.py C:/Users/mikbs/AppData/Local/Temp/tb-gtqgz27z/work", "description": "Compare o`
+- 20261028-114754-X3-T3-v1-r1-1d365d: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-icd8sq9r/work\" && mkdir -p /tmp/eqchk && git show HEAD:taskbench_app/reports.py | sed 's/from `
+  - `PowerShell: {"command": "python -B C:\\Users\\mikbs\\AppData\\Local\\Temp\\eqchk\\chk.py (Get-Location).Path; Remove-Item -Recurse -Force C:\\Users\\mikbs\\AppDat`
+  - `PowerShell: {"command": "python -B C:\\Users\\mikbs\\AppData\\Local\\Temp\\reports_eqchk_1d365d\\chk.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-icd8sq9r\\work;`
+  - `PowerShell: {"command": "python -B C:\\Users\\mikbs\\AppData\\Local\\Temp\\reports_eqchk_1d365d\\chk.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-icd8sq9r\\work"`
+- 20261028-114835-A4-T3-v1-r1-282383: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-6b8dmslx/work\" && git show HEAD:taskbench_app/reports.py > /tmp/old_reports.py && python - <<'`
+- 20261028-114909-A6b-T3-v1-r1-866e43: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-s7ljwxsz/work\" && ls && python -m pytest -q 2>&1 | tail -5", "description": "List project file`
+- 20261028-114923-A9m-T3-v1-r1-357326: 3 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force taskbench_app\\__pycache__, tests\\__pycache__ -Confirm:$false; git status --short", "description": "Remove g`
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force -Confirm:$false taskbench_app\\__pycache__", "description": "Remove generated pycache in package"}`
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force -Confirm:$false tests\\__pycache__", "description": "Remove generated pycache in tests"}`
+- 20261028-114927-A3-T8-v3-r1-68239d: 1 permission denial(s); widen config.json permissions
   - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
-- 20261028-065232-X1-T8-v3-r4-4cc1b9: 1 permission denial(s); widen config.json permissions
+- 20261028-114947-A12-T8-v3-r1-415b16: 2 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-ChildItem -Recurse -File -Exclude *.pyc | ? { $_.FullName -notmatch '\\\\.git\\\\' } | % { $_.FullName.Substring((pwd).Path.Length+1)`
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-114954-A6b-T8-v3-r1-3bc814: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git diff --s`
+- 20261028-115022-A6a-T8-v3-r1-750dfd: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q; python -m pytest -q 2>&1 | Select`
+- 20261028-115029-X3-T8-v3-r1-3e21e1: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git status -`
+- 20261028-115046-A4-T8-v3-r1-0b6950: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git diff --stat", "description": `
+- 20261028-115042-A8-T8-v3-r1-fb8edb: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q", "descriptio`
+- 20261028-115114-A9m-T8-v3-r1-f5df34: 2 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 5; git stash -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; g`
+  - `PowerShell: {"command": "git stash push -q -- taskbench_app/models.py; python -m pytest -q tests/test_storage.py | Select-Object -Last 2; git stash pop -q; git di`
+- 20261028-115055-A13-T8-v3-r1-398e5e: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git status -`
+- 20261028-115136-A2-T8-v3-r1-ff1da2: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; python -m pytest -q 2>&1 | Select`
+- 20261028-115109-A11-T8-v3-r1-982fa7: 2 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash; python -m pytest -q tests/test_storage.py tests/test_cli.py 2>&1 | Select-Object -Last 4; git stash pop",`
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py; python -m pytest -q tests/test_storage.py tests/test_cli.py | Select-Object -Last 4; git stash po`
+- 20261028-115141-X1-T8-v3-r1-b6a44c: 1 permission denial(s); widen config.json permissions
   - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
-- 20261028-065256-A0-T8-v3-r4-68387b: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
-- 20261028-065258-A0b-T8-v3-r4-3836dd: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-n2e9_79m/work && git stash -q && python -m pytest -q tests/test_storage.py 2>&1 | tail -3; git st`
-- 20261028-065255-X2-T8-v3-r4-26d189: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-ep3gzz7f/work\" && git ls-files && cat taskbench_app/models.py taskbench_app/storage.py && ls t`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-ep3gzz7f/work\" ls-files"}`
-- 20261028-065314-X3-T8-v3-r4-12cc2a: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git status --short", "description`
-- 20261028-065326-P1-T2-v3-r4-afe621: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-16r18f7n/work && git ls-files && cat pyproject.toml 2>/dev/null; ls tests 2>/dev/null; head -40 t`
-- 20261028-065342-A0b-T2-v3-r4-c6b721: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-s3gn2qux/work && git ls-files && cat README* pyproject.toml setup.cfg 2>/dev/null | head -50; ls `
-  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-s3gn2qux/work ls-files", "description": "List tracked files"}`
-- 20261028-065347-X2-T2-v3-r4-5828bf: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-swph0uth/work && git ls-files && cat pyproject.toml setup.cfg 2>/dev/null | head -50 && ls tests `
-- 20261028-065402-X1-T2-v3-r4-04ee8a: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-1pb05smf/work && git ls-files && cat *.toml *.cfg 2>/dev/null | head -50"}`
-  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-1pb05smf/work ls-files"}`
-- 20261028-065428-P1-T1-v2-r4-9a1fa7: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-2ztpptjy/work\" && python -m pytest -q 2>&1 | tail -3 && python -c \"from taskbench_app.parsing`
-- 20261028-065423-A0-T2-v3-r4-e44e83: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-r_8kjjqh/work\" && git ls-files && cat *.toml *.cfg 2>/dev/null; ls tests 2>/dev/null; cat task`
-- 20261028-065509-A0b-T1-v2-r4-3e8baf: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-zs6qi5m_/work\" && git ls-files && cat package.json pyproject.toml 2>/dev/null | head -50", "de`
-- 20261028-065529-P1-B1-v2-r4-f26c23: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Force | Select-Object Name; python --version; python -m pytest --version", "description": "List folder and check Python/py`
-- 20261028-065529-P1-B1-v2-r4-f26c23: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -5; d=$(mktemp -d); python -m homeledger.cli --data \"$d/l.db\" account add chk Main >/dev/null; python -`
-  - `Bash: {"command": "python -m homeledger.cli --data smoke.db account add chk Main; python -m homeledger.cli --data smoke.db add chk 5.1.2026 -12,50 Shop --ca`
-- 20261028-065538-A0b-B1-v2-r4-aee32d: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Force | Select-Object Name; python --version; python -m pytest --version", "description": "Check folder and Python/pytest `
-- 20261028-065538-A0b-B1-v2-r4-aee32d: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -4; cd /tmp && python -m homeledger.cli --help >/dev/null 2>&1; echo \"outside-root exit: $?\"", "descrip`
-  - `Bash: {"command": "python -m homeledger.cli --data demo.json account add chk Checking && python -m homeledger.cli --data demo.json add chk 5.1.2026 -12,50 \`
-- 20261028-065527-A0-B1-v2-r4-c7d1be: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3 && python -m homeledger.cli --help && python -m homeledger.cli --data \"$TEMP/hl-demo.json\" add x 202`
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3 && python -m homeledger.cli --help && python -m homeledger.cli --data demo-tmp.json add x 2026-01-01 -`
-- 20261028-070846-P1-T1-v3-r4-0ab0b6: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-q2cahncw/work\" && git ls-files && cat package.json pyproject.toml setup.cfg 2>/dev/null | head`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-q2cahncw/work\" ls-files", "description": "List tracked files"}`
-- 20261028-071012-X2-T1-v3-r4-3ac1d7: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-4j_t130p/work\" && git ls-files && cat package.json pyproject.toml setup.cfg 2>/dev/null | head`
-- 20261028-071136-X2-T2-v1-r4-337002: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-gdgplwwh/work && git ls-files && cat pyproject.toml setup.cfg pytest.ini 2>/dev/null; ls tests 2>`
-- 20261028-071231-A0-T2-v1-r4-c55ab2: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-htj5u6t3/work && git ls-files && cat *.toml *.cfg 2>/dev/null; ls tests 2>/dev/null && head -30 t`
-- 20261028-071305-X1-T2-v1-r4-24658b: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-pfons7mj/work && git ls-files && cat taskbench_app/*.py | head -50 && ls tests 2>/dev/null && hea`
-  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-pfons7mj/work ls-files"}`
-- 20261028-071341-P1-T2-v1-r4-c28c84: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-b74t1adp/work && git ls-files && cat pyproject.toml 2>/dev/null; ls tests 2>/dev/null && head -30`
-- 20261028-071406-A0b-T2-v1-r4-60c8a5: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-Content tests/conftest.py, tests/test_parsing.py -TotalCount 40; Get-Content taskbench_app/parsing.py -TotalCount 40; Get-Content REA`
-- 20261028-071446-A0-T3-v3-r4-7464f4: 5 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -3 && mkdir -p /tmp/rcmp && git show HEAD:taskbench_app/reports.py | sed 's/from \\.utils/from taskbench_`
-  - `PowerShell: {"command": "python -m pytest -q; python -I ..\\rcmp\\cmp.py $PWD", "description": "Run test suite and equivalence check"}`
-  - `PowerShell: {"command": "python -I ..\\rcmp\\cmp.py $PWD", "description": "Compare new reports module against original"}`
-  - `PowerShell: {"command": "python -I C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-2wx83t22\\rcmp\\cmp.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-2wx83t22\\work", "`
-  - `Bash: {"command": "python -I /c/Users/mikbs/AppData/Local/Temp/tb-2wx83t22/rcmp/cmp.py \"C:/Users/mikbs/AppData/Local/Temp/tb-2wx83t22/work\"", "description`
-- 20261028-070529-X2-B1-v2-r4-5b2297: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Force; python --version; python -m pytest --version", "description": "Check folder and Python tooling"}`
-- 20261028-070529-X2-B1-v2-r4-5b2297: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"$(mktemp -d)\" && P=\"python -m homeledger.cli --data l.db\"; export PYTHONPATH=\"C:/Users/mikbs/AppData/Local/Temp/tb-hg_0o3ar/work`
-  - `Bash: {"command": "cd \"$(mktemp -d)\" && export PYTHONPATH=\"C:/Users/mikbs/AppData/Local/Temp/tb-hg_0o3ar/work\" && python -m homeledger.cli --data l.db a`
-- 20261028-071538-X3-T3-v3-r4-dc8b49: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-z38ckn4b/work\" && git show HEAD:taskbench_app/reports.py > /tmp/old_reports.py && python -m py`
-- 20261028-070505-X1-B1-v2-r4-930da6: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Force | Select-Object Name; python --version; python -m pytest --version", "description": "Inspect folder and Python/pytes`
-- 20261028-070505-X1-B1-v2-r4-930da6: 3 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python - <<'EOF'\nimport argparse, inspect\nsrc = inspect.getsource(argparse.ArgumentParser._parse_optional)\nprint(src)\nprint([l for l `
-  - `Bash: {"command": "python -c \"import argparse,inspect; print(inspect.getsource(argparse.ArgumentParser._parse_optional)); print([l for l in inspect.getsour`
-  - `Bash: {"command": "cd \"$TEMP\" 2>/dev/null; D=$(mktemp -d); W=/c/Users/mikbs/AppData/Local/Temp/tb-efwz9lnc/work; cd $W\npython -m homeledger.cli --data $D`
-- 20261028-071612-A0b-T3-v3-r4-294828: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-k154r7qa/work\" && python -m pytest -q 2>&1 | tail -2 && mkdir -p /tmp/eqchk && git show HEAD:t`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-k154r7qa/work\" && git show HEAD:taskbench_app/reports.py | python -c \"\nimport sys, random, t`
-- 20261028-071616-X2-T3-v3-r4-84c72a: 4 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 5; git show HEAD:taskbench_app/reports.py > $env:TEMP\\old_reports.py; @'\nimport sys, ran`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-uyio5hui/work\" && python -m pytest -q 2>&1 | tail -3\nD=$(mktemp -d); git show HEAD:taskbench_`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-uyio5hui/work\" && python -m pytest -q 2>&1 | tail -3; python ../eqcheck/eq.py; git status --sh`
-  - `PowerShell: {"command": "python ..\\eqcheck\\eq.py", "description": "Compare old and new behavior on random inputs"}`
-- 20261028-071620-X1-T3-v3-r4-e523c7: 8 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ajvazcvf/work && git ls-files && grep -rn \"reports\" --include=*.py . | grep -v \"^./taskbench_a`
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -2 && mkdir -p /tmp/cmp/taskbench_app_old && git show HEAD:taskbench_app/reports.py > /tmp/cmp/taskbench_`
-  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 2\n$d = \"C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-cmp\"\nNew-Item -ItemType Directory -`
-  - `PowerShell: {"command": "python -m pytest -q 2>&1 | Select-Object -Last 2\n$d = \"C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-cmp\"\n$w = (Get-Location).Path\nNew-`
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -1; D=/c/Users/mikbs/AppData/Local/Temp/tb-cmp; mkdir -p $D/taskbench_app_old; git show HEAD:taskbench_ap`
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -1 && mkdir -p /c/Users/mikbs/AppData/Local/Temp/tb-cmp/taskbench_app_old && git show HEAD:taskbench_app/`
-  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-cmp\\check.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-ajvazcvf\\work C:\\Users\\mikb`
-  - `PowerShell: {"command": "Remove-Item -Recurse -Force C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-cmp -Confirm:$false; git status --short", "description": "Remove s`
-- 20261028-071710-A0-T7-v1-r4-daa3d1: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-v5hmuiij/work\" && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.50,food\\n202`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-v5hmuiij/work\" && python -m taskbench_app.cli --ledger ../import-check/l.json import ../import`
-- 20261028-071704-P1-T3-v3-r4-19212d: 6 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-uks4nfuo/work\" && mkdir -p /tmp/eqchk && git show HEAD:taskbench_app/reports.py > taskbench_ap`
-  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app\\_old_reports.py; python ..\\eqchk\\check.py (Get-Location`
-  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 taskbench_app\\_old_reports.py; python ..\\eqchk\\check.py C:\\Users\\mi`
-  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py > taskbench_app\\_old_reports.py; python ..\\eqchk\\check.py C:\\Users\\mikbs\\AppData\\Local\\Tem`
-  - `PowerShell: {"command": "python ..\\eqchk\\check.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-uks4nfuo\\work; git status --short", "description": "Compare refact`
-  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-uks4nfuo\\eqchk\\check.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-uks4nfuo\\work", "`
-- 20261028-071746-P1-T7-v1-r4-5eeed5: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-zupl7waq/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
-  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-zupl7waq/work ls-files", "description": "List tracked files"}`
-- 20261028-071801-X2-T7-v1-r4-072288: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cat >> tests/test_cli.py <<'EOF'\n\n\ndef write_csv(tmp_path, text):\n    path = tmp_path / \"in.csv\"\n    path.write_text(text, encodin`
-- 20261028-071835-X1-T7-v1-r4-a4efb8: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-6y2r7buq/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
-- 20261028-071859-A0b-T8-v1-r4-1de294: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-a90kpw9l/work\" && git ls-files && cat taskbench_app/models.py taskbench_app/storage.py && ls t`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-a90kpw9l/work\" ls-files", "description": "List tracked files"}`
-- 20261028-071836-A0b-T7-v1-r4-c8c095: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cat >> tests/test_cli.py <<'EOF'\n\n\ndef test_import_skips_header_and_blank_lines(tmp_path, capsys):\n    ledger = str(tmp_path / \"l.js`
-- 20261028-071955-P1-T3-v2-r4-1977ea: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-lcm0fho5/work\" && python -m pytest -q 2>&1 | tail -5\nmkdir -p \"$TEMP/rcheck\" && git show HE`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-lcm0fho5/work\" && python -m pytest -q 2>&1 | tail -5\nmkdir -p \"C:/Users/mikbs/AppData/Local/`
-- 20261028-071955-X1-T3-v2-r4-e8c1f2: 4 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-pc0_ghim/work\" && cat taskbench_app/utils.py tests/test_reports.py && python -m pytest -q 2>&1`
-  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 $env:TEMP\\old_reports_src.py; @'\nimport sys, importlib.util\nsys.path.`
-  - `PowerShell: {"command": "python ..\\cmp_reports.py; Remove-Item ..\\cmp_reports.py -Confirm:$false", "description": "Run old-vs-new comparison, then delete the sc`
-  - `PowerShell: {"command": "python ..\\cmp_reports.py", "description": "Run old-vs-new comparison script"}`
-- 20261028-072053-A0b-T6-v2-r4-3d42b8: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -5 && git stash -q -- taskbench_app && python -m pytest -q 2>&1 | tail -4; git stash pop -q && git status`
-  - `Bash: {"command": "git stash push -q -- taskbench_app/validation.py && python -m pytest -q; git stash pop -q; git diff --stat", "description": "Confirm new `
-- 20261028-072053-A0b-T6-v2-r4-3d42b8: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cat >> tests/test_cli.py <<'EOF'\n\n\ndef test_summary_json(tmp_path, capsys):\n    ledger = str(tmp_path / \"l.json\")\n    assert main(`
-- 20261028-072058-X1-T6-v2-r4-a4729e: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-80uvsiym/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-80uvsiym/work\" ls-files", "description": "List tracked files"}`
-- 20261028-072113-A0-T6-v2-r4-f2481f: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cat >> tests/test_validation.py <<'EOF'\n\n\n@pytest.mark.parametrize(\"text\", [\"2026-13-01\", \"2026-00-01\"])\ndef test_month_out_of_`
-  - `PowerShell: {"command": "git stash push -q -- taskbench_app/validation.py; python -m pytest -q; git stash pop -q; git diff --stat"}`
-- 20261028-072144-X2-T6-v2-r4-bbac55: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-c8mvjtn6/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-c8mvjtn6/work\" ls-files", "description": "List repo files"}`
-- 20261028-072214-P1-T6-v2-r4-369957: 3 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-_63octnu/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List tr`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-_63octnu/work\" ls-files", "description": "List tracked files"}`
-  - `PowerShell: {"command": "git stash push taskbench_app/validation.py; python -m pytest -q; git stash pop", "description": "Confirm new tests fail without the fix"}`
-- 20261028-072245-X1-T1-v1-r4-67c0ad: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-d2z9ekvf/work && cat taskbench_app/parsing.py tests/test_parsing.py; grep -rn \"parse_amount\" --`
-- 20261028-072306-A0-T1-v1-r4-1008cd: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-sfzzk6a4/work\" && ls && git ls-files | head -50", "description": "List project files"}`
-- 20261028-072312-A0b-T1-v1-r4-505682: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-lqrbxggx/work\" && ls && git ls-files | head -50"}`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-lqrbxggx/work\" ls-files"}`
-- 20261028-072404-X1-T7-v2-r4-7957ae: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-621l0mjh/work && python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\")\n`
-- 20261028-072406-A0b-T7-v2-r4-40d476: 4 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-96pj5njm/work\" && cat >> tests/test_cli.py <<'EOF'\n\n\ndef write_csv(tmp_path, text):\n    pa`
+- 20261028-115155-A10-T8-v3-r1-3b1a95: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-2d1ebp72/work\" && git ls-files && cat taskbench_app/models.py taskbench_app/storage.py && ls t`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-2d1ebp72/work\" ls-files", "description": "List tracked files"}`
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git diff --stat", "description": `
+- 20261028-115505-A9-T7-v2-r1-8dc934: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-0pj945dn/work\"; git ls-files; cat taskbench_app/cli.py; grep -n \"def parse_csv_line\" -A30 -r`
+- 20261028-115508-A8-T7-v2-r1-85203d: 4 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp_smoke\"; Set-Content -Encoding utf8 \"$d\\t.csv\" \"date,amount,category`n2026-`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > \"$d/t.csv\"; python -m taskbench_app.cli --l`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger /c/Users/mikbs/AppData/Local/Temp/imp_smoke/l.json import /c/Users/mikbs/AppData/Local/Temp/imp_smok`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\imp_smoke\\l.json import C:\\Users\\mikbs\\AppData\\Local\\T`
+- 20261028-115555-A4-T7-v2-r1-afb8a0: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-svdb7nbv/work\" && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head `
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-svdb7nbv/work\" ls-files", "description": "List tracked files"}`
+- 20261028-115603-A11-T7-v2-r1-775d9e: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-Content taskbench_app/cli.py, taskbench_app/parsing.py, taskbench_app/storage.py, taskbench_app/validation.py; ls tests", "descriptio`
+- 20261028-115535-A13-T7-v2-r1-f4b6a4: 3 permission denial(s); widen config.json permissions
   - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\tbimp\"; Set-Content -Encoding utf8 \"$d\\t.csv\" \"date,amount,category`n2026-01-0`
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-96pj5njm/work\" && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.50,food\\n202`
-  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger ..\\smoke\\l.json import ..\\smoke\\t.csv; \"exit=\" + $LASTEXITCODE", "description": "Smoke-test th`
-- 20261028-072426-P1-T7-v2-r4-2d3b99: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\")\ns = p.read_text()\ns = s.replace(\"from .reports import\"`
-- 20261028-072538-X1-T2-v2-r4-315798: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-0phmfesn/work\" && git ls-files && cat taskbench_app/__init__.py 2>/dev/null | head -20; ls tes`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-0phmfesn/work\" ls-files", "description": "List tracked files"}`
-- 20261028-072513-X2-T7-v2-r4-37f7e4: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-gfdddxi9/work\" && cat >> tests/test_cli.py <<'EOF'\n\n\ndef test_import_adds_rows_skipping_hea`
-  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-check\"; Set-Content -Encoding utf8 \"$d\\t.csv\" \"date,amount,category`n2026-`
-- 20261028-072523-A0-T7-v2-r4-535432: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-sdibdydk/work\" && python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\`
-- 20261028-072609-X2-T2-v2-r4-ffea7c: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-qp7a8rx5/work && git ls-files && cat taskbench_app/__init__.py 2>/dev/null | head -20 && ls tests`
-  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-qp7a8rx5/work ls-files", "description": "List tracked files"}`
-- 20261028-072612-A0b-T2-v2-r4-4c83b9: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-j_wsry2w/work\"; git ls-files; cat taskbench_app/*.py 2>/dev/null | head -50; ls tests 2>/dev/n`
-- 20261028-072630-P1-T2-v2-r4-ed9567: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ya6ou6e1/work && git ls-files && cat taskbench_app/*.py | head -50 && ls tests 2>/dev/null; cat p`
-  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-ya6ou6e1/work ls-files", "description": "List tracked files"}`
-- 20261028-072701-P1-T6-v3-r4-112608: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-vfthzfeg/work\" && git ls-files && grep -rn \"date\" --include=*.py . | head -50", "description`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-vfthzfeg/work\" ls-files", "description": "List tracked files"}`
-- 20261028-072713-A0b-T6-v3-r4-959600: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-s6o1c4kk/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-s6o1c4kk/work\" ls-files", "description": "List repo files"}`
-- 20261028-072753-A0-T6-v3-r4-cd7f70: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-4i_yooj9/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-4i_yooj9/work\" ls-files", "description": "List repo files"}`
-- 20261028-072759-X2-T6-v3-r4-dba75b: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -30; git stash -q && python -m pytest -q tests/test_cli.py -k text_unchanged 2>&1 | tail -3; git stash po`
-  - `Bash: {"command": "cd \"$TEMP\" && rm -f demo_ledger.json && python -m taskbench_app.cli --ledger demo_ledger.json add 2026-01-05 100 salary --kind income >`
-- 20261028-072758-X1-T6-v3-r4-9ebade: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-gd7mz6mg/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-gd7mz6mg/work\" ls-files", "description": "List repo files"}`
-- 20261028-072835-P1-T5-v3-r4-e3cc6f: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-cdqe_q_n/work\" && git ls-files && cat taskbench_app/reports.py && ls tests; cat pyproject.toml`
-- 20261028-072851-A0b-T5-v3-r4-f80d10: 1 permission denial(s); widen config.json permissions
-  - `PowerShell: {"command": "Get-ChildItem -Recurse -File -Exclude *.pyc | ? { $_.FullName -notmatch '\\\\.git\\\\' } | % { $_.FullName.Substring((Get-Location).Path.`
-- 20261028-072852-X1-T5-v3-r4-485f74: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-3eex0lab/work && git ls-files && cat pyproject.toml setup.cfg pytest.ini 2>/dev/null | head -50",`
-- 20261028-072913-A0-T5-v3-r4-277d57: 4 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-sq37kwf5/work\nfor m in 's/sorted(months.keys())/months.keys()/' 's/round_money(income - expense)`
-  - `Bash: {"command": "mkdir -p /tmp/mutcheck && cat > /tmp/mutcheck/mut.py <<'EOF'\nimport shutil, subprocess, sys, tempfile, pathlib\nroot = pathlib.Path(sys.`
-  - `PowerShell: {"command": "python ..\\mutcheck\\mut.py (Get-Location).Path", "description": "Run mutation check against temp copies"}`
-  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-sq37kwf5\\mutcheck\\mut.py C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-sq37kwf5\\work", `
-- 20261028-072953-A0-T7-v3-r4-8097a8: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-0n4ncxjq/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*cli* 2>/dev/nul`
-  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > $d/b.csv; python -m taskbench_app.cli --ledge`
-- 20261028-073007-A0b-T7-v3-r4-0edcc6: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "sed -i 's/\"2026-01-06,\u20ac1,000,salary,income,january\\\\n\"/\"2026-01-06;\u20ac1,000;salary;income;january\\\\n\"/' tests/test_cli.py`
-  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger ..\\scratch\\x.json import ..\\scratch\\x.csv; \"exit=$LASTEXITCODE\""}`
-- 20261028-073011-P1-T7-v3-r4-65bbc2: 5 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-1eikgid1/work\" && cat >> tests/test_cli.py <<'EOF'\n\n\ndef write_csv(tmp_path, text):\n    pa`
-  - `Bash: {"command": "cd \"$TEMP\" && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > \"$d/b.csv\" && cd \"C:/`
-  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -Encoding utf8 \"$d\\b.csv\"`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-02-30,1,x\\n' > \"$d/t.csv\"; python -m taskbench_app.cli --l`
+  - `Bash: {"command": "mkdir -p /tmp/tbimp && printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-02-30,1,x\\n' > /tmp/tbimp/t.csv && python -m taskbenc`
+- 20261028-115639-A10-T7-v2-r1-57ff33: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-nofswvgp/work && cat >> tests/test_cli.py <<'EOF'\n\n\ndef write_csv(tmp_path, text):\n    path =`
+- 20261028-115742-A2-T7-v2-r1-699bc1: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-_13cjiaj/work\" && git ls-files && cat taskbench_app/cli.py && ls tests && cat tests/*cli* 2>/d`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-_13cjiaj/work\" ls-files"}`
+- 20261028-115643-A6b-T7-v2-r1-00cc76: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in CLAUDE.md README.md taskbench_app/*.py tests/conftest.py tests/test_cli.py; do echo \"=== $f\"; cat -n $f; done", "description":`
+  - `Bash: {"command": "cd /tmp && d=$(mktemp -d) && printf 'Date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > $d/t.csv && cd \"C:/Users/mik`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tbimport-smoke\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -Encoding utf8 \"$d\\t.csv\" `
+- 20261028-115724-A12-T7-v2-r1-10ee5a: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-_7jl4j98/work\" && file taskbench_app/cli.py tests/test_cli.py; git config core.autocrlf; cat .`
+  - `PowerShell: {"command": "python --version; git config core.autocrlf; (Get-Content -Raw taskbench_app/cli.py).Contains(\"`r`n\")", "description": "Check python ver`
+- 20261028-115822-A9m-T7-v2-r1-055e2d: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-mbyiu6dk/work && cat taskbench_app/parsing.py taskbench_app/storage.py taskbench_app/validation.p`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\impdemo\"; Set-Content -Encoding utf8 \"$d\\t.csv\" \"date,amount,category`n2026-01`
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-mbyiu6dk/work && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.5,food\\n2026-13-`
+- 20261028-115828-A3-T7-v2-r1-f9c65e: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\")\ns = p.read_text()\ns = s.replace(\"\"\"from .reports impo`
+- 20261028-115831-X1-T7-v2-r1-0d6883: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-z3_ykucq/work\" && cat tests/conftest.py tests/test_cli.py README.md && python -m pytest -q 2>&`
+  - `Bash: {"command": "cd /tmp && rm -rf imp && mkdir imp && printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > imp/t.csv && PYTHONPATH`
+- 20261028-115927-A11-T7-v1-r1-798cc7: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-hyhe52xw/work\"; ls; ls tests; cat taskbench_app/cli.py taskbench_app/parsing.py taskbench_app/`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-check\"; Set-Content -Encoding ascii \"$d\\in.csv\" \"date,amount,category`n202`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > \"$d/in.csv\"; python -m taskbench_app.cli`
+  - `Bash: {"command": "mkdir -p /tmp/impcheck && printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > /tmp/impcheck/in.csv && python -`
+- 20261028-115959-A9m-T7-v1-r1-d5848c: 3 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-Content taskbench_app/parsing.py, taskbench_app/storage.py, taskbench_app/validation.py, taskbench_app/models.py, tests/test_cli.py, `
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-fxuby2ag/work\"; for f in taskbench_app/parsing.py taskbench_app/storage.py taskbench_app/valid`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-fxuby2ag/work\" && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.50,food\\n202`
+- 20261028-120018-A4-T7-v1-r1-b8c676: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-r90ele03/work\" && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head `
+- 20261028-115933-A13-T7-v1-r1-2b2934: 3 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\tb-import-check\"; \"date,amount,category`n2026-01-05,12.50,food`n2026-02-30,1,x`n\`
+  - `Bash: {"command": "d=$(mktemp -d); printf '\\xef\\xbb\\xbfdate,amount,category\\n2026-01-05,12.50,food\\n2026-02-30,1,x\\n' > \"$d/t.csv\"; python -m taskbe`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger C:/Users/mikbs/AppData/Local/Temp/tb-import-check/l.json import C:/Users/mikbs/AppData/Local/Temp/tb`
+- 20261028-120048-A9-T7-v1-r1-40afa0: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python - <<'EOF'\np='taskbench_app/cli.py'\ns=open(p,encoding='utf-8').read()\ns=s.replace(\"from .reports\",\"from .parsing import parse`
+- 20261028-120056-A3-T7-v1-r1-606ba0: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ovecmir7/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-ovecmir7/work ls-files"}`
+- 20261028-120146-A2-T7-v1-r1-4b994d: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\")\ns = p.read_text()\ns = s.replace(\"\"\"from .reports impo`
+- 20261028-120103-A6a-T7-v1-r1-376ddc: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > $d/in.csv; python -m taskbench_app.cli --l`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; [IO.File]::WriteAllText(\"$d\\in.csv\", `
   - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-import-check\\l.json import C:\\Users\\mikbs\\AppData\\Lo`
-  - `PowerShell: {"command": "Remove-Item -Recurse -Force C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-import-check -Confirm:$false", "description": "Remove scratch dire`
-- 20261028-073056-X3-T7-v3-r4-c7b1f5: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"$TMPDIR\" 2>/dev/null || cd /tmp; d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,\u20ac12,food\\n2026-13-01,1,x\\n' > \"$`
-  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -Encoding utf8 -Path \"$d\\b`
-- 20261028-073109-X2-T7-v3-r4-254eff: 1 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd /tmp && rm -rf tbimp && mkdir tbimp && printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > tbimp/b.csv && cd /`
-- 20261028-073113-X1-T7-v3-r4-6f7cab: 3 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-cro9imiw/work\" && cat tests/conftest.py tests/test_cli.py README.md .claude/settings.json; pyt`
-  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\nbad,row,x\\n' > \"$d/b.csv\"; python -m taskbench_app.cli --ledger`
-  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"imp-smoke\"; New-Item -ItemType Directory -Force $d | Out-Null; [IO.File]::WriteAllText(\"$d\\b.csv\", \"date,`
-- 20261028-073147-X2-T6-v1-r4-cad6a0: 2 permission denial(s); widen config.json permissions
-  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-6zlh764v/work\" && git ls-files && grep -rn \"date\" --include=*.py . | grep -v \"^./.git\" | h`
-  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-6zlh764v/work\" ls-files", "description": "List tracked files"}`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-import-check\\l.json import C:\\Users\\mikbs\\AppData\\Lo`
+- 20261028-120145-A12-T7-v1-r1-0fbc64: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "(python3 tools/scaffold.py cli-command import || python tools/scaffold.py cli-command import) && git diff && cat tests/test_cli_import.py`
+  - `Bash: {"command": "d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.50,food\\nbad,1,x\\n' > \"$d/in.csv\" && python -m taskbench_app.cli --led`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-01-05,12.50`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger ../import-check/l.json import ../import-check/in.csv; echo \"exit=$?\"", "description": "Run import `
+  - `Bash: {"command": "rm -r /c/Users/mikbs/AppData/Local/Temp/tb-nvlwqja8/import-check", "description": "Remove the temporary sample files"}`
+- 20261028-120232-A10-T7-v1-r1-277db4: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cat >> tests/test_cli.py <<'EOF'\n\n\ndef test_import_skips_header_and_blank_lines(tmp_path, capsys):\n    ledger = str(tmp_path / \"l.js`
+- 20261028-120237-X1-T7-v1-r1-0ef7d2: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-drqxzlu3/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+- 20261028-120322-A6b-T7-v1-r1-e53454: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in CLAUDE.md README.md taskbench_app/cli.py taskbench_app/parsing.py taskbench_app/storage.py taskbench_app/validation.py taskbench`
+  - `PowerShell: {"command": "python -m pytest -q; \"2026-01-05,12.50,food`ndate,x`n\" | Out-File -Encoding utf8 $env:TEMP\\tb_imp.csv; python -m taskbench_app.cli --l`
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -5; d=$(mktemp -d); printf '2026-01-05,12.50,food\\ndate,x\\n' > \"$d/in.csv\"; python -m taskbench_app.c`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger ../imp_check/l.json import ../imp_check/in.csv; echo \"exit=$?\"; rm -rf ../imp_check", "description`
+- 20261028-120706-A11-T3-v2-r1-b23862: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python3 -m pytest -q; if (-not $?) { python -m pytest -q }", "description": "Run test suite"}`
+- 20261028-120645-A9m-T3-v2-r1-c00991: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-weuag00v/work\" && cat taskbench_app/utils.py && cat tests/test_reports.py && python -m pytest `
+  - `PowerShell: {"command": "python -m pytest -q; git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 $env:TEMP\\orig_reports.py; @'\nimport importlib.ut`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-weuag00v/work\"; python -m pytest -q 2>&1 | tail -2; git show HEAD:taskbench_app/reports.py | s`
+  - `PowerShell: {"command": "python -m pytest -q; python ..\\eqcheck\\check.py; git status --short", "description": "Run tests, equivalence check, git status"}`
+  - `PowerShell: {"command": "python C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-weuag00v\\eqcheck\\check.py", "description": "Compare old and new reports behaviour"}`
+- 20261028-120749-A8-T3-v2-r1-ca7bd1: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-0kiqfe7e/work\" && mkdir -p /tmp/rcmp && git show HEAD:taskbench_app/reports.py | sed 's/from .`
+- 20261028-120755-A3-T3-v2-r1-e241c9: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-lhxuwifh/work\" && mkdir -p /tmp/cmp && git show HEAD:taskbench_app/reports.py > taskbench_app/`
+- 20261028-120812-A6b-T3-v2-r1-0b5fdd: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-7j4a2k63/work\" && ls && ls taskbench_app tests 2>/dev/null; python -m pytest -q 2>&1 | tail -5`
+- 20261028-120853-A2-T6-v3-r1-de4386: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-o2sf34ip/work\" && git ls-files && grep -rn -i \"date\" --include=*.py --include=*.js --include`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-o2sf34ip/work\" ls-files", "description": "List tracked files"}`
+- 20261028-120915-A11-T6-v3-r1-fc7cf6: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-9e445re4/work\" && (python -m pytest -q || py -m pytest -q) 2>&1 | tail -5", "description": "Ru`
+- 20261028-120901-A3-T6-v3-r1-445a34: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-q5pll5ft/work\" && git ls-files && grep -rn \"date\" --include=*.py . | head -50", "description`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-q5pll5ft/work\" ls-files", "description": "List tracked files"}`
+- 20261028-120957-A4-T6-v3-r1-5290d2: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-h1k9twbf/work\" && git ls-files && grep -rn \"date\" --include=*.py . | head -50", "description`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-h1k9twbf/work\" ls-files", "description": "List tracked files"}`
+- 20261028-120929-A13-T6-v3-r1-94137d: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py -q; python -m pytest -q tests/test_validation.py; git stash pop -q; git diff --stat", "descrip`
+- 20261028-121050-A12-T6-v3-r1-e5f563: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-s9_n_87p/work\" && git ls-files && grep -rn \"date\" --include=*.py . | grep -v \"^./tools\" | `
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-s9_n_87p/work\" ls-files", "description": "List tracked files"}`
+  - `PowerShell: {"command": "git stash push -- taskbench_app/validation.py; python -m pytest -q tests/test_validation.py; git stash pop", "description": "Run test aga`
+- 20261028-121038-A9m-T6-v3-r1-4ee682: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "git stash push taskbench_app/validation.py -q && python -m pytest -q tests/test_validation.py 2>&1 | tail -4; git stash pop -q && git dif`
+- 20261028-121051-X1-T6-v3-r1-9c1a34: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-v0dfjspu/work && git ls-files && cat README* 2>/dev/null | head -50", "description": "List repo f`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-v0dfjspu/work ls-files", "description": "List repo files"}`
+- 20261028-121142-A9-T6-v3-r1-e360aa: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-is_2yyw4/work && git ls-files && grep -rn \"date\" --include=*.py . | head -40"}`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-is_2yyw4/work ls-files"}`
+- 20261028-121151-A10-T6-v3-r1-55afb9: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-75xoizjg/work\" && git stash -q -- taskbench_app && python -m pytest -q tests/test_cli.py 2>&1 `
+- 20261028-121222-A6b-T6-v3-r1-d65b4d: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py; python -m pytest -q tests/test_validation.py; git stash pop", "description": "Confirm new tes`
+- 20261028-121346-A13-T8-v1-r1-bf1059: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git status --short", "description`
+- 20261028-121434-A9-T5-v3-r1-d5b6c8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-reisc3qb/work; cat taskbench_app/utils.py tests/conftest.py; head -30 tests/test_reports.py; ls t`
+- 20261028-121555-A4-T5-v3-r1-8f146d: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force taskbench_app/__pycache__, tests/__pycache__ -Confirm:$false; git status --short", "description": "Remove pyc`
+- 20261028-121736-X1-T5-v2-r1-6e3013: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -c \"print(round(0.004+0.004-0.003,2), round(0.008-0.003,2), round(0.01-0.0,2))\"", "description": "Check rounding values in net t`
+- 20261028-121950-A9m-T6-v2-r1-8e6c31: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-bt9_zh1a/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
+  - `Bash: {"command": "git stash push taskbench_app/validation.py -q && python -m pytest -q 2>&1 | tail -4; git stash pop -q && git diff --stat", "description":`
+- 20261028-121958-A11-T6-v2-r1-aa9003: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-7udl5bt6/work\"; ls -R | grep -v pycache | head -30; cat taskbench_app/validation.py; ls tests;`
+- 20261028-122003-A2-T6-v2-r1-37ca70: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-afngk1tj/work\" && git ls-files && cat package.json pyproject.toml 2>/dev/null | head -50", "de`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-afngk1tj/work\" ls-files", "description": "List repo files"}`
+- 20261028-122042-A10-T6-v2-r1-d7b4de: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-lyy4ps1e/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-lyy4ps1e/work\" ls-files", "description": "List repo files"}`
+- 20261028-122037-A3-T6-v2-r1-519c19: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-_lxb3vbx/work\" && python -m pytest -q 2>&1 | tail -5 && git stash -q && python -m pytest -q te`
+- 20261028-122037-A3-T6-v2-r1-519c19: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-_lxb3vbx/work\" && cat >> tests/test_cli.py <<'EOF'\n\n\ndef _ledger_with_january(tmp_path):\n `
+- 20261028-122129-X1-T6-v2-r1-e72a81: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-zpizn7r6/work && git ls-files && cat README* 2>/dev/null | head -50", "description": "List repo f`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-zpizn7r6/work ls-files", "description": "List repo files"}`
+- 20261028-122048-A6b-T6-v2-r1-39f6da: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-_5p8outh/work && head -30 tests/test_validation.py; cat tests/conftest.py; grep -n \"date\\|^def\`
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py -q; python -m pytest -q tests/test_validation.py; git stash pop -q; git diff --stat", "descrip`
+- 20261028-122132-A13-T6-v2-r1-7fbe91: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py -q; python -m pytest -q tests/test_cli.py; git stash pop -q; git diff --stat", "description": `
+- 20261028-122238-A9-T6-v2-r1-09c94c: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-4wf0mcvp/work\"; git ls-files; grep -rn \"date\" --include=*.py . | grep -v \"^./.git\" | head `
+- 20261028-122247-A4-T6-v2-r1-fa3b28: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-pzjqcok1/work\" && git stash -q -- taskbench_app && python -m pytest -q 2>&1 | tail -4; git sta`
+- 20261028-122311-A12-T6-v2-r1-866b95: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-otwg2euz/work && git ls-files && cat tools/scaffold.py | head -50"}`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-otwg2euz/work ls-files"}`
+- 20261028-122404-A6a-T2-v1-r1-55d357: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-1tyhxm07/work\" && git ls-files && cat pyproject.toml setup.cfg 2>/dev/null | head -50", "descr`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-1tyhxm07/work\" ls-files", "description": "List tracked files"}`
+- 20261028-122423-A9m-T2-v1-r1-9aea75: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-v2a51dkm/work && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null && cat`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-v2a51dkm/work ls-files"}`
+- 20261028-122437-A2-T2-v1-r1-83a1f3: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-6juh1mhz/work\" && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-6juh1mhz/work\" ls-files", "description": "List tracked files"}`
+- 20261028-122450-A12-T2-v1-r1-19a13c: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-mvr4_79s/work\" && git ls-files && cat tools/scaffold.py | head -80 && ls tests && cat tests/*.`
+- 20261028-122521-A4-T2-v1-r1-b98b3c: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-sgvygn6z/work\" && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-sgvygn6z/work\" ls-files"}`
+- 20261028-122529-A10-T2-v1-r1-19f062: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-mw9arm0l/work\" && git ls-files && cat pyproject.toml setup.cfg 2>/dev/null; ls tests 2>/dev/nu`
+- 20261028-122529-A9-T2-v1-r1-0d2e2d: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-zb8lm7pp/work; ls; ls taskbench_app tests 2>/dev/null; cat pyproject.toml 2>/dev/null | head -30"`
+- 20261028-122559-A11-T2-v1-r1-938be8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-iffdkgva/work && ls taskbench_app tests && head -20 tests/*.py | head -40", "description": "List `
+- 20261028-122554-A3-T2-v1-r1-d1976b: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-5pgkj841/work\" && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-5pgkj841/work\" ls-files"}`
+- 20261028-122552-X1-T2-v1-r1-5da9c9: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-nhtayijz/work && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null && cat`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-nhtayijz/work ls-files", "description": "List tracked files"}`
+- 20261028-122631-A10-T2-v2-r1-3fd78a: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-rajfzrn6/work\"; git ls-files; cat taskbench_app/__init__.py 2>/dev/null | head -30; ls tests 2`
+- 20261028-122712-A9-T2-v2-r1-6423cc: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-k3m848vr/work\"; ls; ls taskbench_app tests 2>/dev/null; cat taskbench_app/*.py | head -40"}`
+- 20261028-122707-A12-T2-v2-r1-a28faf: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-54gjmqx7/work\" && git ls-files && cat tools/scaffold.py 2>/dev/null | head -80; ls taskbench_a`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-54gjmqx7/work\" ls-files", "description": "List tracked files"}`
+- 20261028-122735-X1-T2-v2-r1-3ee88b: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-sz9cd16p/work && git ls-files && cat taskbench_app/*.py 2>/dev/null | head -50; ls tests 2>/dev/n`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-sz9cd16p/work ls-files", "description": "List tracked files"}`
+- 20261028-122813-A6a-T2-v2-r1-a93412: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-y8yhs66h/work\" && git ls-files && cat pyproject.toml setup.cfg pytest.ini 2>/dev/null | head -`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-y8yhs66h/work\" ls-files", "description": "List tracked files"}`
+- 20261028-122812-A6b-T2-v2-r1-f227f4: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-i4l3i9cv/work && git ls-files | head -100 && ls -a", "description": "List tracked files"}`
+- 20261028-122855-A11-T2-v2-r1-c701db: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-1f1zcd67/work\" && ls taskbench_app tests && head -20 tests/*.py | head -40"}`
+- 20261028-122900-A4-T2-v2-r1-81bd1f: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-py4uxo6t/work\" && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-py4uxo6t/work\" ls-files", "description": "List tracked files"}`
+- 20261028-122902-A3-T2-v2-r1-b213fb: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-5ahws9ej/work && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null && cat`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-5ahws9ej/work ls-files", "description": "List tracked files"}`
+- 20261028-122937-A6a-T1-v3-r1-99d084: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-80xwmqg7/work\" && git ls-files | head -50 && cat package.json 2>/dev/null; ls", "description":`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-80xwmqg7/work\" && git grep -n \"parse_amount\\|,\" -- tests/test_parsing.py; git grep -n \"par`
+- 20261028-122948-A3-T1-v3-r1-621a39: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-uv__0ven/work\" && git ls-files && cat README* 2>/dev/null | head -30", "description": "List re`
+- 20261028-123010-A4-T1-v3-r1-a04924: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-rv3v6nf3/work\" && git ls-files && cat .github/workflows/* 2>/dev/null | head -50", "descriptio`
+- 20261028-123021-A2-T1-v3-r1-522a73: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-sqmiilqw/work\" && git ls-files && cat package.json pyproject.toml setup.cfg 2>/dev/null | head`
+- 20261028-123030-X1-T1-v3-r1-432d5b: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-qfvw27__/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
+- 20261028-123053-A9-T1-v3-r1-298507: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-_9dcj8_b/work; git ls-files; python -m pytest -q 2>&1 | tail -30"}`
+- 20261028-123109-A3-T7-v1-r2-60a2c9: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-28o057pv/work\" && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head `
+- 20261028-123148-A11-T7-v1-r2-9ed28b: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-Content taskbench_app/cli.py, taskbench_app/parsing.py, taskbench_app/storage.py, taskbench_app/validation.py; ls tests", "descriptio`
+- 20261028-123200-X1-T7-v1-r2-1efc7f: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-bhhzgwwo/work && cat tests/conftest.py tests/test_cli.py README.md .claude/settings.json; python `
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > $d/in.csv; python -m taskbench_app.cli --ledg`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-01-05,12.50`
+  - `PowerShell: {"command": "Set-Content -Encoding ascii -Path tmp_check.csv -Value \"date,amount,category\",\"2026-01-05,12.50,food\",\"2026-13-01,1,x\"; python -m t`
+  - `PowerShell: {"command": "Set-Content -Encoding ascii -Path tmp_check.csv -Value 'date,amount,category','2026-01-05,12.50,food','2026-13-01,1,x'; python -m taskben`
+- 20261028-123229-A10-T7-v1-r2-9c5002: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cat >> tests/test_cli.py <<'EOF'\n\n\ndef test_import_valid_rows_with_header_and_blank_lines(tmp_path, capsys):\n    ledger = str(tmp_pat`
+- 20261028-123236-A12-T7-v1-r2-039ec8: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-342h5cbv/work\" && python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-check\"; Set-Content -Encoding utf8 \"$d\\t.csv\" \"date,amount,category`n2026-`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12,food\\n2026-13-01,1,x\\n' > \"$d/t.csv\"; cd \"C:/Users/mikbs/AppData/Local/`
+- 20261028-123317-A9m-T7-v1-r2-8ebb07: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-4teznlyk/work\" && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head `
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-4teznlyk/work\" ls-files", "description": "List tracked files"}`
+- 20261028-123309-A4-T7-v1-r2-9dcb95: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-wr3q7fvg/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+- 20261028-123357-A2-T7-v1-r2-ae9e4f: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-zvrs7p0u/work\" && git ls-files && cat taskbench_app/cli.py && ls tests && cat tests/*cli* 2>/d`
+- 20261028-123328-A6b-T7-v1-r2-5805e8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in CLAUDE.md README.md taskbench_app/cli.py taskbench_app/parsing.py taskbench_app/validation.py taskbench_app/storage.py taskbench`
+- 20261028-123430-A9-T7-v1-r2-930ad6: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ok87m6pj/work; git ls-files; cat taskbench_app/cli.py; ls tests; cat taskbench_app/*.py | head -2`
+- 20261028-123354-A13-T7-v1-r2-4984a4: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"$TMP\" && d=$(mktemp -d) && printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > $d/in.csv && cd /c/Users/mik`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-01-05,12.50`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-import-check\\l.json import C:\\Users\\mikbs\\AppData\\Lo`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger /c/Users/mikbs/AppData/Local/Temp/tb-import-check/l.json import /c/Users/mikbs/AppData/Local/Temp/tb`
+- 20261028-123501-A9m-T2-v1-r2-137f95: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-be71vt31/work\" && git ls-files && cat taskbench_app/*.py | head -50 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-be71vt31/work\" ls-files", "description": "List tracked files"}`
+- 20261028-123509-A9-T2-v1-r2-f5def0: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-eglli9ox/work; git ls-files; cat taskbench_app/__init__.py 2>/dev/null | head -20; ls tests 2>/de`
+- 20261028-123533-A2-T2-v1-r2-df5c3b: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-3vyclrtv/work\" && git ls-files && cat taskbench_app/*.py | head -60 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-3vyclrtv/work\" ls-files", "description": "List tracked files"}`
+- 20261028-123533-X1-T2-v1-r2-e170dd: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-vv0qpype/work\" && git ls-files && cat pyproject.toml setup.cfg 2>/dev/null; ls tests 2>/dev/nu`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-vv0qpype/work\" ls-files", "description": "List tracked files"}`
+- 20261028-123601-A10-T2-v1-r2-a1db15: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-gtgh9zl7/work\" && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-gtgh9zl7/work\" ls-files", "description": "List tracked files"}`
+- 20261028-123629-A3-T2-v1-r2-0d63a7: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-p6dfl5cq/work\" && git ls-files && cat taskbench_app/*.py | head -80 && ls tests 2>/dev/null &&`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-p6dfl5cq/work\" ls-files", "description": "List tracked files"}`
+- 20261028-123700-A11-T2-v1-r2-7342ce: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "ls taskbench_app, tests; Get-Content taskbench_app/validation.py -TotalCount 20; Get-Content tests/*.py -TotalCount 15 | Select-Object -F`
+- 20261028-123645-A6b-T2-v1-r2-3510fd: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in CLAUDE.md README.md taskbench_app/__init__.py tests/conftest.py; do echo \"=== $f\"; cat -n $f; done; wc -l taskbench_app/*.py t`
+- 20261028-123711-A12-T2-v1-r2-6b7596: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-j16mg2o2/work\" && git ls-files && cat tools/scaffold.py | head -80 && ls tests && cat taskbenc`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-j16mg2o2/work\" ls-files", "description": "List tracked repo files"}`
+- 20261028-123732-X1-T8-v3-r2-09f368: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123736-A10-T8-v3-r2-d5f7db: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-0ssgr_d2/work\" && python -m pytest -q 2>&1 | tail -3 && git stash push taskbench_app/models.py`
+- 20261028-123758-A8-T8-v3-r2-18a951: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123802-A12-T8-v3-r2-68ff6c: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123741-A13-T8-v3-r2-ac377c: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123826-X3-T8-v3-r2-1395b2: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123826-A3-T8-v3-r2-bf745b: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; git stash; python -m pytest -q tests/test_storage.py; git stash pop", "description": "Run tests, and confirm the new`
+- 20261028-123839-A9m-T8-v3-r2-a90154: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest tests/test_storage.py -q 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123849-A6a-T8-v3-r2-84f6bf: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py; git stash pop -q; git status --short", "description`
+- 20261028-123853-A11-T8-v3-r2-e98a10: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py; python -m pytest -q tests/test_storage.py; git stash pop", "description": "Confirm test fails wit`
+- 20261028-123906-A2-T8-v3-r2-0a58f7: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py; python -m pytest -q tests/test_storage.py; git stash pop", "description": "Confirm new test fails`
+- 20261028-123909-A6b-T8-v3-r2-2bbba0: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/models.py -q; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop -q; pyth`
+- 20261028-123912-A4-T8-v3-r2-d50fc7: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash; python -m pytest -q tests/test_storage.py 2>&1 | Select-Object -Last 3; git stash pop; python -m pytest -q 2>&1 | Select-Objec`
+- 20261028-124035-X1-T3-v2-r2-daedca: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-84s4nkdx/work\" && git show HEAD:taskbench_app/reports.py > \"$TEMP/old_reports.py\" && sed -i `
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-84s4nkdx/work\" && mkdir -p ../eqcheck && git show HEAD:taskbench_app/reports.py | sed 's/from `
+  - `PowerShell: {"command": "python ..\\eqcheck\\check.py; Remove-Item -Recurse -Force ..\\eqcheck, taskbench_app\\__pycache__, tests\\__pycache__ -Confirm:$false; gi`
+  - `PowerShell: {"command": "python ..\\eqcheck\\check.py", "description": "Run equivalence check old vs new"}`
+  - `Bash: {"command": "python ../eqcheck/check.py", "description": "Run equivalence check old vs new"}`
+- 20261028-124408-X1-T7-v2-r2-428307: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-slj0a4wl/work && python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\")\n`
+  - `Bash: {"command": "cd \"$TMP\" 2>/dev/null || cd /tmp; d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > \"$d/in.c`
+- 20261028-124406-A12-T7-v2-r2-80acdf: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-r8bgsz4v/work && (python3 --version 2>/dev/null && python3 tools/scaffold.py cli-command import |`
+- 20261028-124508-A3-T7-v2-r2-350191: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-__zpr6ci/work\" && python - <<'EOF'\nfrom pathlib import Path\np = Path(\"taskbench_app/cli.py\`
+  - `Bash: {"command": "cd \"$(mktemp -d)\" && printf 'date,amount,category\\n2026-01-05,1,food\\nbad\\n' > in.csv && PYTHONPATH=\"C:/Users/mikbs/AppData/Local/T`
+- 20261028-124539-A9m-T7-v2-r2-1768a6: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"$TMPDIR\" 2>/dev/null || cd /tmp; d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,5,food\\n2026-13-01,1,x\\n' > $d/in.csv;`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP (\"imp-\" + [guid]::NewGuid()); New-Item -ItemType Directory $d | Out-Null; \"date,amount,category`n2026-01-05,5`
+- 20261028-124604-A10-T7-v2-r2-7d0d07: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "d=$(mktemp -d) && printf 'Date,amount,category\\n2026-03-01,5,food\\nbad\\n' > $d/t.csv && python -m taskbench_app.cli --ledger $d/l.json`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"imp-check\"; New-Item -ItemType Directory -Force $d | Out-Null; \"Date,amount,category`n2026-03-01,5,food`nbad`
+- 20261028-124621-A11-T7-v2-r2-cba937: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Get-Content taskbench_app/cli.py, taskbench_app/parsing.py, taskbench_app/storage.py, taskbench_app/validation.py; ls tests", "descriptio`
+- 20261028-124554-A6b-T7-v2-r2-8b43be: 6 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in CLAUDE.md README.md taskbench_app/cli.py taskbench_app/models.py taskbench_app/parsing.py taskbench_app/storage.py taskbench_app`
+  - `Bash: {"command": "cd \"$TEMP\" 2>/dev/null; d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > \"$d/in.csv\"; cd /`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb_import_smoke\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-01-05,12.50`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb_import_smoke\\l.json import C:\\Users\\mikbs\\AppData\\Lo`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb_import_smoke\\l.json import C:\\Users\\mikbs\\AppData\\Lo`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb_import_smoke\\l.json import C:\\Users\\mikbs\\AppData\\Lo`
+- 20261028-124709-A9-T7-v2-r2-f04521: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-02xfuzjc/work\"; git ls-files; cat taskbench_app/cli.py; ls tests; grep -n \"def parse_csv_line`
+- 20261028-124645-X3-T7-v2-r2-4dc453: 3 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-check\"; Set-Content -Encoding utf8 \"$d\\in.csv\" \"date,amount,category`n2026`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,1,food\\n2026-13-01,1,x\\n' > \"$d/in.csv\"; python -m taskbench_app.cli --ledg`
+  - `Bash: {"command": "mkdir -p /tmp/impchk && printf 'date,amount,category\\n2026-01-05,1,food\\n2026-13-01,1,x\\n' > /tmp/impchk/in.csv; python -m taskbench_a`
+- 20261028-124747-A11-T6-v2-r2-58e992: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-f80acp40/work\" && (python3 -m pytest -q 2>&1 || python -m pytest -q 2>&1) | tail -5", "descrip`
+- 20261028-124726-A4-T7-v2-r2-6dc62a: 6 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-1k_wc9a6/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\tbimp\"; Set-Content -Encoding utf8 \"$d\\t.csv\" \"Date,amount,category`n2026-01-0`
+  - `Bash: {"command": "d=$(mktemp -d); printf '\\xef\\xbb\\xbfDate,amount,category\\n2026-01-05,1,food\\nbad\\n' > \"$d/t.csv\"; python -m taskbench_app.cli --l`
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger ../smoke/l.json import ../smoke/t.csv; echo \"exit=$?\"", "description": "Smoke test import command `
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger ..\\smoke\\l.json import ..\\smoke\\t.csv; $LASTEXITCODE", "description": "Smoke test import command`
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force ..\\smoke -Confirm:$false", "description": "Remove smoke test scratch directory"}`
+- 20261028-124825-A9m-T6-v2-r2-3103d8: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python -m pytest -q 2>&1 | tail -15; git stash -q && python -m pytest -q tests/test_cli.py::test_month_13_rejected 2>&1 | tail -2; git st`
+- 20261028-124853-A3-T6-v2-r2-992620: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-ho6t_d1w/work\" && git ls-files && grep -rn \"date\" --include=*.py . | head -50", "description`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-ho6t_d1w/work\" ls-files", "description": "List tracked files"}`
+- 20261028-124913-A2-T6-v2-r2-ba7e86: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-qszyyp2r/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-qszyyp2r/work\" ls-files", "description": "List repo files"}`
+- 20261028-125004-A9-T6-v2-r2-564bdd: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "python - <<'EOF'\np='taskbench_app/cli.py'; s=open(p).read()\ns=s.replace(\"import argparse\\n\",\"import argparse\\nimport json\\n\",1)\`
+- 20261028-125038-A8-T6-v2-r2-16d747: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "git stash push taskbench_app/validation.py -q; python -m pytest -q tests/test_cli.py tests/test_validation.py; git stash pop -q; git diff`
+- 20261028-125030-A4-T6-v2-r2-aad89e: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-vewh670a/work && git ls-files && cat $(git ls-files | grep -v -i -E '\\.(md|lock)$' | head -20)"}`
+- 20261028-125055-X1-T6-v2-r2-97f434: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "git stash push taskbench_app/validation.py -q && python -m pytest -q 2>&1 | tail -4; git stash pop -q && git status --short", "descriptio`
+- 20261028-125055-X1-T6-v2-r2-97f434: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cat >> tests/test_cli.py <<'EOF'\n\n\ndef _ledger_with_month(tmp_path):\n    ledger = str(tmp_path / \"l.json\")\n    assert main([\"--le`
+- 20261028-125122-A12-T6-v2-r2-e35e62: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-ump9vf4h/work\" && git ls-files && grep -rn \"date\" --include=*.py . | head -50", "description`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-ump9vf4h/work\" ls-files", "description": "List tracked files"}`
+- 20261028-125120-A6b-T6-v2-r2-a13af0: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "for f in CLAUDE.md README.md taskbench_app/cli.py taskbench_app/parsing.py taskbench_app/validation.py taskbench_app/models.py tests/conf`
+  - `PowerShell: {"command": "python -m pytest -q; git stash -q; python -m pytest -q tests/test_cli.py tests/test_validation.py 2>&1 | Select-Object -Last 3; git stash`
+- 20261028-125201-A10-T6-v2-r2-98ef96: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-zvskbyrh/work\" && git ls-files && cat README* 2>/dev/null | head -50", "description": "List re`
+  - `Bash: {"command": "git -C \"C:/Users/mikbs/AppData/Local/Temp/tb-zvskbyrh/work\" ls-files", "description": "List tracked files"}`
+- 20261028-125338-A10-T3-v1-r2-186e25: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-7c1veeiu/work\" && python -m pytest -q 2>&1 | tail -5 && git show HEAD:taskbench_app/reports.py`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-7c1veeiu/work\" && git show HEAD:taskbench_app/reports.py | python -c \"\nimport sys, random\nf`
+- 20261028-125338-A11-T3-v1-r2-5c0f3a: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-d99cvbh1/work\" && cat taskbench_app/utils.py && python3 -m pytest -q 2>&1 | tail -3", "descrip`
+- 20261028-125429-A6b-T3-v1-r2-ba0351: 1 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force taskbench_app\\__pycache__, tests\\__pycache__; git status --short", "description": "Remove pycache dirs crea`
+- 20261028-125417-X1-T3-v1-r2-01622b: 7 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-oakw0g0w/work\" && git show HEAD:taskbench_app/reports.py > /tmp/old_reports.py && sed -i 's/fr`
+  - `PowerShell: {"command": "$d = \"C:\\Users\\mikbs\\AppData\\Local\\Temp\\tb-oakw0g0w\\eqcheck\"; (git show HEAD:taskbench_app/reports.py) -replace 'from \\.utils',`
+  - `PowerShell: {"command": "git show HEAD:taskbench_app/reports.py | ForEach-Object { $_ -replace 'from \\.utils', 'from taskbench_app.utils' } | Set-Content -Encodi`
+  - `Bash: {"command": "cd /c/Users/mikbs/AppData/Local/Temp/tb-oakw0g0w/work\ngit show HEAD:taskbench_app/reports.py | sed 's/from \\.utils/from taskbench_app.u`
+  - `Bash: {"command": "git show HEAD:taskbench_app/reports.py | sed 's/from \\.utils/from taskbench_app.utils/' > ../eqcheck/old_reports.py && python ../eqcheck`
+  - `Bash: {"command": "git show HEAD:taskbench_app/reports.py > ../eqcheck/old_reports_raw.py", "description": "Save original reports.py for comparison"}`
+  - `Bash: {"command": "python ../eqcheck/eq.py ../eqcheck/old_reports.py .", "description": "Compare old and new reports behavior on random data"}`
+- 20261028-125500-A4-T3-v1-r2-6bed38: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-kk3qdttp/work\" && python -m pytest -q 2>&1 | tail -2 && git show HEAD:taskbench_app/reports.py`
+- 20261028-125530-X3-T3-v1-r2-68be83: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-59f2mwd7/work\" && git show HEAD:taskbench_app/reports.py > /tmp/old_reports.py && python - <<'`
+- 20261028-125535-A2-T3-v1-r2-a60355: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-26mt4115/work && ls -R | head -50 && grep -rn \"reports\" --include=*.py . | head -30", "descript`
+- 20261028-125600-A12-T3-v1-r2-92bd93: 4 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-vqr4ppqk/work && git ls-files && grep -rn \"reports\" --include=*.py . | grep -v \"^./taskbench_a`
+  - `PowerShell: {"command": "git ls-files; Get-Content taskbench_app/utils.py; Select-String -Path tests/*.py -Pattern \"reports|top_categories|format_summary\"", "de`
+  - `PowerShell: {"command": "python -m pytest -q; git show HEAD:taskbench_app/reports.py | Out-File -Encoding utf8 $env:TEMP\\old_reports.py", "description": "Run tes`
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-vqr4ppqk/work; python - <<'EOF'\nimport subprocess, types, random, sys\nfrom collections import n`
+- 20261028-125851-A3-T7-v3-r2-6a8baf: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "printf 'date,amount,category\\n2026-01-05,12.50,food\\nbad\\n' > /tmp/x.csv && python -m taskbench_app.cli --ledger /tmp/l.json import /t`
+- 20261028-125847-A4-T7-v3-r2-0e581a: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-l85aam0j/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+  - `Bash: {"command": "git -C C:/Users/mikbs/AppData/Local/Temp/tb-l85aam0j/work ls-files"}`
+- 20261028-125915-A12-T7-v3-r2-2b2bb2: 3 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-btf7d_ya/work\"; git ls-files; cat taskbench_app/cli.py; cat tools/scaffold.py | head -80"}`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-03-01,4.20,coffee\\n2026-13-01,1,x\\n' > \"$d/b.csv\"; python -m taskbench_app.cli --`
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"tb-import-check\"; New-Item -ItemType Directory -Force $d | Out-Null; \"date,amount,category`n2026-03-01,4.20,`
+- 20261028-125932-A10-T7-v3-r2-fe40cb: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-6k1m93bq/work\" && git ls-files && cat taskbench_app/*.py && ls tests 2>/dev/null; cat CLAUDE.m`
+  - `PowerShell: {"command": "$d = New-Item -ItemType Directory -Force \"$env:TEMP\\imp-e2e\"; Set-Content -Encoding utf8 \"$d\\b.csv\" \"date,amount,category`n2026-01`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > \"$d/b.csv\"; python -m taskbench_app.cli `
+  - `Bash: {"command": "python -m taskbench_app.cli --ledger C:/Users/mikbs/AppData/Local/Temp/imp-e2e/l.json import C:/Users/mikbs/AppData/Local/Temp/imp-e2e/b.`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger C:/Users/mikbs/AppData/Local/Temp/imp-e2e/l.json import C:/Users/mikbs/AppData/Local/Temp/imp-e2e/b.`
+- 20261028-125946-A13-T7-v3-r2-6e9211: 6 permission denial(s); widen config.json permissions
+  - `PowerShell: {"command": "python -m pytest -q; \"2026-03-01,5,food`ndate-bad,1,x\" | Out-File -Encoding utf8 $env:TEMP\\tb_imp.csv; python -m taskbench_app.cli --l`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-kc_ffhv7/work\" && python -m pytest -q 2>&1 | tail -3; d=$(mktemp -d); printf '\\xef\\xbb\\xbfD`
+  - `Bash: {"command": "cd \"C:/Users/mikbs/AppData/Local/Temp/tb-kc_ffhv7/work\" && python -m pytest -q 2>&1 | tail -3 && mkdir -p ../tbimp && printf '\\xef\\xb`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger ..\\tbimp\\l.json import ..\\tbimp\\b.csv; Write-Output \"exit=$LASTEXITCODE\"", "description": "Try`
+  - `PowerShell: {"command": "python -m taskbench_app.cli --ledger ..\\tbimp\\l.json import ..\\tbimp\\b.csv; $LASTEXITCODE", "description": "Try import end-to-end via`
+  - `PowerShell: {"command": "Remove-Item -Recurse -Force -Confirm:$false ..\\tbimp", "description": "Remove scratch import files"}`
+- 20261028-130030-X1-T7-v3-r2-c342c1: 2 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-ol_vd_gn/work && git ls-files && cat taskbench_app/*.py && ls tests && cat tests/*.py | head -150`
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n2026-13-01,1,x\\n' > $d/b.csv; python -m taskbench_app.cli --ledge`
+- 20261028-130102-A9-T7-v3-r2-c5d3b6: 1 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "cd C:/Users/mikbs/AppData/Local/Temp/tb-dzsi04vx/work; git ls-files; cat taskbench_app/cli.py; ls tests; grep -n \"def parse_csv_line\" -`
+- 20261028-130043-A6b-T7-v3-r2-7e892a: 5 permission denial(s); widen config.json permissions
+  - `Bash: {"command": "d=$(mktemp -d); printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > \"$d/b.csv\"; python -m taskbench_app.cli `
+  - `PowerShell: {"command": "$d = Join-Path $env:TEMP \"imp-check\"; New-Item -ItemType Directory -Force $d | Out-Null; Set-Content -Encoding utf8 \"$d\\b.csv\" \"dat`
+  - `PowerShell: {"command": "New-Item -ItemType Directory -Force imp-check | Out-Null; Set-Content -Encoding utf8 imp-check\\b.csv -Value 'date,amount,category','2026`
+  - `PowerShell: {"command": "New-Item -ItemType Directory -Force imp-check | Out-Null; Set-Content -Encoding utf8 imp-check\\b.csv -Value 'date,amount,category','2026`
+  - `Bash: {"command": "mkdir -p imp-check && printf 'date,amount,category\\n2026-01-05,12.50,food\\n\\n2026-13-01,1,x\\n' > imp-check/b.csv && python -m taskben`
