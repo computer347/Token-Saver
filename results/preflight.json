@@ -1,8 +1,8 @@
 {
-  "time": "2026-10-28T16:33:20",
+  "time": "2026-10-28T18:16:41",
   "mode": "full",
   "dry_run": false,
-  "ok": true,
+  "ok": false,
   "claude_version": "2.1.312 (Claude Code)",
   "model": "claude-opus-5-5",
   "battery_version": "v8",
@@ -69,9 +69,9 @@
     },
     {
       "check": "Run finished without error",
-      "ok": true,
+      "ok": false,
       "critical": true,
-      "detail": "21"
+      "detail": "You've hit your 5-hour limit \u00b7 resets 9:30pm (Europe/Helsinki)"
     },
     {
       "check": "Permissions allow running tests unattended",
@@ -81,9 +81,9 @@
     },
     {
       "check": "Model actually ran the tests (answer is 21)",
-      "ok": true,
+      "ok": false,
       "critical": false,
-      "detail": "21"
+      "detail": "You've hit your 5-hour limit \u00b7 resets 9:30pm (Europe/Helsinki)"
     },
     {
       "check": "Transcript found in isolated config dir",
@@ -112,24 +112,24 @@
   ],
   "smoke": {
     "json_usage": {
-      "input": 4,
-      "output": 84,
-      "cache_read": 39341,
-      "cache_write": 5823,
-      "cache_write_1h": 5823,
+      "input": 0,
+      "output": 0,
+      "cache_read": 0,
+      "cache_write": 0,
+      "cache_write_1h": 0,
       "cache_write_5m": 0
     },
     "transcript_usage": {
-      "cache_read": 39341,
+      "cache_read": 0,
       "cache_write_5m": 0,
-      "output": 84,
-      "cache_write_1h": 5823,
-      "cache_write": 5823,
-      "input": 4
+      "input": 0,
+      "output": 0,
+      "cache_write_1h": 0,
+      "cache_write": 0
     },
-    "cache_write_1h": 5823,
+    "cache_write_1h": 0,
     "cache_write_5m": 0,
-    "api_cost_usd": 0.056148199999999995
+    "api_cost_usd": 0
   },
   "confounding_env_present": []
 }
