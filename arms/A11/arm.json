@@ -1,0 +1,1 @@
+{"id": "A11", "name": "Repo recipe skill", "layer": "exploration", "notes": "Hand-written conventions and step-by-step recipes for this repo (the 'drilled method' idea). Writing it took human time once; that cost is not counted in the results. Small suite only: it depends on that repo's existing code.", "suites": ["small"]}

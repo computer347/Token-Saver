@@ -1,0 +1,1 @@
+{"id": "X2", "name": "Shell trimming incl. PowerShell", "layer": "shell", "notes": "Experimental. A5's trimming, also applied to the PowerShell tool (Windows agents run tests there, so A5 never fires). Accepts a plain test/git command, optionally followed by '2>&1 | Select-Object -Last/-First N'. Same '[trimmed by A5' marker, so the report's A5 evidence column counts it."}

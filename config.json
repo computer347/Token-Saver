@@ -1,0 +1,268 @@
+{
+  "battery_version": "v8",
+  "model": "claude-opus-5-5",
+  "_model_note": "Pin the model you use daily. Changing it, the tasks or the arms means bumping battery_version.",
+  "claude_bin": "claude",
+  "isolate_config": true,
+  "run_timeout_minutes": 30,
+  "permission_mode": "acceptEdits",
+  "modes": {
+    "smoke": {
+      "arms": [
+        "A0",
+        "A1",
+        "A5"
+      ],
+      "tasks": [
+        "T1"
+      ],
+      "reps_per_variant": 1
+    },
+    "smoke-build": {
+      "arms": [
+        "A0"
+      ],
+      "tasks": [
+        "B1"
+      ],
+      "reps_per_variant": 1
+    },
+    "pilot": {
+      "arms": [
+        "A0",
+        "A0b",
+        "P1",
+        "A1",
+        "A5"
+      ],
+      "tasks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ],
+      "reps_per_variant": 2
+    },
+    "pilot-build": {
+      "arms": [
+        "A0",
+        "A0b",
+        "P1"
+      ],
+      "tasks": [
+        "B1"
+      ],
+      "reps_per_variant": 2
+    },
+    "full": {
+      "arms": [
+        "A0",
+        "A0b",
+        "P1",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6a",
+        "A6b",
+        "A8",
+        "A9",
+        "A9m",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "X1",
+        "X3"
+      ],
+      "tasks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ],
+      "reps_per_variant": 3
+    },
+    "full-build": {
+      "arms": [
+        "A0",
+        "A0b",
+        "P1",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6a",
+        "A6b",
+        "A9",
+        "A9m",
+        "A10",
+        "A13",
+        "X1"
+      ],
+      "tasks": [
+        "B1"
+      ],
+      "reps_per_variant": 3
+    },
+    "refs": {
+      "arms": [
+        "A0",
+        "R1"
+      ],
+      "tasks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ],
+      "reps_per_variant": 3
+    },
+    "refs-build": {
+      "arms": [
+        "A0",
+        "R1"
+      ],
+      "tasks": [
+        "B1"
+      ],
+      "reps_per_variant": 3
+    },
+    "confirm": {
+      "arms": "from confirm_arms",
+      "tasks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "B1"
+      ],
+      "reps_per_variant": 4,
+      "_note": "Independent replication on both suites: A0 + A0b + confirm_arms, logged under '<battery_version>-confirm'."
+    }
+  },
+  "a7_components": [],
+  "limits": {
+    "max_runs_per_night": 1000,
+    "max_hours": 12,
+    "max_infra_failure_rate": 0.1,
+    "max_retries_per_cell": 2
+  },
+  "weights": {
+    "_note": "Cost weights relative to one uncached input token, from API pricing for Opus/Sonnet 5.5.",
+    "input": 1.0,
+    "output": 5.0,
+    "cache_read": 0.05,
+    "cache_write_5m": 1.25,
+    "cache_write_1h": 2.0,
+    "cache_write_unknown": 2.0
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Task",
+      "TodoWrite",
+      "Bash(python3 -m pytest *)",
+      "Bash(python -m pytest *)",
+      "Bash(pytest *)",
+      "Bash(python3 -m taskbench_app.cli *)",
+      "Bash(python -m taskbench_app.cli *)",
+      "Bash(git diff *)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)"
+    ],
+    "deny": [
+      "WebFetch",
+      "WebSearch"
+    ],
+    "_note": "Command rules use the current `Tool(cmd *)` syntax. Each workspace automatically gets PowerShell twins and python/py variants of these (harness/workspace.py: expand_rules)."
+  },
+  "variants": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "_variants_note": "v1 precise spec, v2 casual/terse, v3 goal or user-story style. Every wording states the same contract.",
+  "workers": 3,
+  "_workers_note": "Parallel isolated runs. 3-4 is a sensible ceiling for one account.",
+  "confirm_arms": [
+    "P1",
+    "X1",
+    "X2",
+    "X3"
+  ],
+  "_confirm_note": "After the full battery, list the arms that won (and A7 once a7_components is set), then run mode 'confirm'.",
+  "ponytail_restore_after_battery": true,
+  "plugins": {
+    "ponytail": {
+      "repo": "https://github.com/DietrichGebert/ponytail",
+      "pinned_commit": "",
+      "_note": "The repo root is the plugin."
+    },
+    "pyright-lsp": {
+      "repo": "https://github.com/anthropics/claude-plugins-official",
+      "pinned_commit": "",
+      "from_marketplace_entry": true,
+      "_note": "Its folder has only README/LICENSE; the LSP config lives in the marketplace entry, so a local plugin is built from it."
+    }
+  },
+  "_pinning_note": "Empty pinned_commit = the commit at first clone is recorded in vendor/NAME.json and reused for every later run.",
+  "suites": {
+    "small": {
+      "target": "target_repo",
+      "tasks": "tasks",
+      "kind": "edit",
+      "max_turns": 80,
+      "run_timeout_minutes": 30,
+      "success_threshold": 1.0,
+      "_note": "Edit tasks on a ~420-line app; each task's checks must all pass."
+    },
+    "build": {
+      "target": "build_suite/empty_repo",
+      "tasks": "build_suite/tasks",
+      "kind": "build",
+      "max_turns": 300,
+      "run_timeout_minutes": 120,
+      "success_threshold": 0.9,
+      "acceptance_tests": 86,
+      "_acceptance_note": "Fixed denominator for the pass rate: tests that are missing, skipped or fail to collect count as failed.",
+      "extra_allow": [
+        "Bash(python3 -m homeledger.cli *)",
+        "Bash(python -m homeledger.cli *)",
+        "Bash(mkdir *)"
+      ],
+      "_note": "Build homeledger from an empty folder in 4 steps; graded by 86 hidden acceptance tests. Success = pass rate >= threshold; the pass rate itself is reported too."
+    }
+  },
+  "max_turns": 80
+}

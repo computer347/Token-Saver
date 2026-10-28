@@ -1,0 +1,111 @@
+{
+  "time": "2026-10-28T07:35:54",
+  "mode": "pilot-build",
+  "dry_run": true,
+  "ok": true,
+  "claude_version": "9.9.9 (fake Claude Code)",
+  "model": "claude-opus-5-5",
+  "battery_version": "v8",
+  "checks": [
+    {
+      "check": "Claude Code installed",
+      "ok": true,
+      "critical": true,
+      "detail": "9.9.9 (fake Claude Code)"
+    },
+    {
+      "check": "Claude Code starts without a cmd.exe wrapper (multi-line prompts and flags arrive intact)",
+      "ok": true,
+      "critical": true,
+      "detail": "C:\\Users\\mikbs\\AppData\\Local\\Programs\\Python\\Python312\\python.exe C:\\dev\\tokens\\harness\\fake_claude.py"
+    },
+    {
+      "check": "CLAUDE_CODE_OAUTH_TOKEN set (isolated runs have no saved login)",
+      "ok": true,
+      "critical": true,
+      "detail": "run `claude setup-token`, then `export CLAUDE_CODE_OAUTH_TOKEN=...` in this terminal"
+    },
+    {
+      "check": "pytest importable",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "No confounding env vars leak into runs",
+      "ok": true,
+      "critical": false,
+      "detail": ""
+    },
+    {
+      "check": "Isolated headless run returns JSON",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "Run finished without error",
+      "ok": true,
+      "critical": true,
+      "detail": "21"
+    },
+    {
+      "check": "Permissions allow running tests unattended",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "Model actually ran the tests (answer is 21)",
+      "ok": true,
+      "critical": false,
+      "detail": "21"
+    },
+    {
+      "check": "Transcript found in isolated config dir",
+      "ok": true,
+      "critical": true,
+      "detail": "1 file(s)"
+    },
+    {
+      "check": "No Ponytail inside the isolated run",
+      "ok": true,
+      "critical": true,
+      "detail": "0 mention(s)"
+    },
+    {
+      "check": "Agents cannot read the harness folder (canary test)",
+      "ok": true,
+      "critical": false,
+      "detail": "the planted secret was not readable"
+    },
+    {
+      "check": "Billing check done by you (usage panel / usage credits off)",
+      "ok": true,
+      "critical": false,
+      "detail": "manual: compare Settings \u2192 Usage before and after tonight"
+    }
+  ],
+  "smoke": {
+    "json_usage": {
+      "input": 40,
+      "output": 918,
+      "cache_read": 153000,
+      "cache_write": 22440,
+      "cache_write_1h": 22440,
+      "cache_write_5m": 0
+    },
+    "transcript_usage": {
+      "output": 918,
+      "input": 40,
+      "cache_write_1h": 22440,
+      "cache_write": 22440,
+      "cache_write_5m": 0,
+      "cache_read": 153000
+    },
+    "cache_write_1h": 22440,
+    "cache_write_5m": 0,
+    "api_cost_usd": 0.1224
+  },
+  "confounding_env_present": []
+}

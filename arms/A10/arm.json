@@ -1,0 +1,1 @@
+{"id": "A10", "name": "Code intelligence (pyright-lsp)", "layer": "file reads", "plugin": "pyright-lsp", "requires_binary": "pyright-langserver", "notes": "Anthropic's official pyright-lsp plugin, loaded per run with --plugin-dir from a pinned clone. Needs `npm install -g pyright`. The report checks the LSP tool was actually called."}

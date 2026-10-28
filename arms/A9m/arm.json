@@ -1,0 +1,1 @@
+{"id": "A9m", "name": "Medium effort", "layer": "thinking / output", "cli_args": ["--effort", "medium"], "notes": "Started with --effort medium. If medium is already the model's default, this arm should match A0."}

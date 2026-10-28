@@ -1,0 +1,1 @@
+Follow-up request: our scripts need machine-readable output. Give the `summary` command a `--json` option that prints the month as a JSON object with numeric `income`, `expense` and `net` keys. The default human-readable output must stay exactly as it is today. Include a test for the new option.

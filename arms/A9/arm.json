@@ -1,0 +1,1 @@
+{"id": "A9", "name": "Low effort", "layer": "thinking / output", "cli_args": ["--effort", "low"], "notes": "Started with --effort low. Configured, not independently verified per run: Claude Code doesn't report the active effort in its JSON output."}

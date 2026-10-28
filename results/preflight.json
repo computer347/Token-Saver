@@ -1,0 +1,135 @@
+{
+  "time": "2026-10-28T11:25:22",
+  "mode": "full",
+  "dry_run": false,
+  "ok": true,
+  "claude_version": "2.1.312 (Claude Code)",
+  "model": "claude-opus-5-5",
+  "battery_version": "v8",
+  "checks": [
+    {
+      "check": "Claude Code installed",
+      "ok": true,
+      "critical": true,
+      "detail": "2.1.312 (Claude Code)"
+    },
+    {
+      "check": "Claude Code starts without a cmd.exe wrapper (multi-line prompts and flags arrive intact)",
+      "ok": true,
+      "critical": true,
+      "detail": "C:\\Users\\mikbs\\AppData\\Roaming\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe"
+    },
+    {
+      "check": "CLAUDE_CODE_OAUTH_TOKEN set (isolated runs have no saved login)",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "pytest importable",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "Ponytail not installed in your normal setup",
+      "ok": true,
+      "critical": false,
+      "detail": ""
+    },
+    {
+      "check": "No confounding env vars leak into runs",
+      "ok": true,
+      "critical": false,
+      "detail": ""
+    },
+    {
+      "check": "A10: `pyright-langserver` installed",
+      "ok": true,
+      "critical": true,
+      "detail": "C:\\Users\\mikbs\\AppData\\Roaming\\npm\\pyright-langserver.CMD"
+    },
+    {
+      "check": "A10: plugin pyright-lsp pinned and passes `claude plugin validate`",
+      "ok": true,
+      "critical": true,
+      "detail": "f8c5e7a1dc \u00b7 directory refuses a submission for, run this command with --profile directory.\n\nThe directory also runs a safety scan and a policy review that this command does not.\n\n\u2714 Validation passed with warnings"
+    },
+    {
+      "check": "A8 brief available",
+      "ok": true,
+      "critical": true,
+      "detail": "9f41387c982c.md"
+    },
+    {
+      "check": "Isolated headless run returns JSON",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "Run finished without error",
+      "ok": true,
+      "critical": true,
+      "detail": "21"
+    },
+    {
+      "check": "Permissions allow running tests unattended",
+      "ok": true,
+      "critical": true,
+      "detail": ""
+    },
+    {
+      "check": "Model actually ran the tests (answer is 21)",
+      "ok": true,
+      "critical": false,
+      "detail": "21"
+    },
+    {
+      "check": "Transcript found in isolated config dir",
+      "ok": true,
+      "critical": true,
+      "detail": "1 file(s)"
+    },
+    {
+      "check": "No Ponytail inside the isolated run",
+      "ok": true,
+      "critical": true,
+      "detail": "0 mention(s)"
+    },
+    {
+      "check": "Agents cannot read the harness folder (canary test)",
+      "ok": true,
+      "critical": false,
+      "detail": "the planted secret was not readable"
+    },
+    {
+      "check": "Billing check done by you (usage panel / usage credits off)",
+      "ok": true,
+      "critical": false,
+      "detail": "manual: compare Settings \u2192 Usage before and after tonight"
+    }
+  ],
+  "smoke": {
+    "json_usage": {
+      "input": 4,
+      "output": 84,
+      "cache_read": 39345,
+      "cache_write": 5827,
+      "cache_write_1h": 5827,
+      "cache_write_5m": 0
+    },
+    "transcript_usage": {
+      "output": 84,
+      "cache_write_5m": 0,
+      "input": 4,
+      "cache_write_1h": 5827,
+      "cache_read": 39345,
+      "cache_write": 5827
+    },
+    "cache_write_1h": 5827,
+    "cache_write_5m": 0,
+    "api_cost_usd": 0.056181
+  },
+  "confounding_env_present": []
+}

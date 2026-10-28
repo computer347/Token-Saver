@@ -1,0 +1,1 @@
+{"id": "P1", "name": "Placebo instructions", "layer": "method check", "notes": "A CLAUDE.md of similar length to the instruction arms but with no instructions in it. Separates 'this instruction works' from 'any extra text changes behaviour'."}

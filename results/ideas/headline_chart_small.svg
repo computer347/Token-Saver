@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 224" font-family="sans-serif" font-size="13">
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="24" font-size="15" font-weight="600">Cost per successful task vs baseline (A0 = 1.0), 95% CI</text>
+<line x1="536.0" y1="38" x2="536.0" y2="214" stroke="#888" stroke-dasharray="4 3"/>
+<text x="20" y="65">P1</text>
+<rect x="90" y="54" width="460.8" height="16" fill="#5d6d7e" opacity="0.8"/>
+<line x1="488.7" y1="62" x2="630.0" y2="62" stroke="#222" stroke-width="1.5"/>
+<text x="556.8" y="66" font-size="11">1.03</text>
+<text x="20" y="97">X1</text>
+<rect x="90" y="86" width="344.4" height="16" fill="#2a7f62" opacity="0.8"/>
+<line x1="385.0" y1="94" x2="494.7" y2="94" stroke="#222" stroke-width="1.5"/>
+<text x="440.4" y="98" font-size="11">0.77</text>
+<text x="20" y="129">X2</text>
+<rect x="90" y="118" width="447.4" height="16" fill="#5d6d7e" opacity="0.8"/>
+<text x="543.4" y="130" font-size="11">1.00</text>
+<text x="20" y="161">X3</text>
+<rect x="90" y="150" width="409.8" height="16" fill="#5d6d7e" opacity="0.8"/>
+<line x1="443.2" y1="158" x2="568.7" y2="158" stroke="#222" stroke-width="1.5"/>
+<text x="505.8" y="162" font-size="11">0.92</text>
+<text x="20" y="193">X4</text>
+<rect x="90" y="182" width="431.9" height="16" fill="#5d6d7e" opacity="0.8"/>
+<text x="527.9" y="194" font-size="11">0.97</text>
+</svg>

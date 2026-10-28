@@ -1,0 +1,1 @@
+{"id": "X1", "name": "Lean toolset", "layer": "context", "cli_args": ["--tools", "Bash,PowerShell,Read,Edit,Write,Glob,Grep"], "notes": "Experimental. Only the tools these tasks need: drops Task/subagents, TodoWrite, NotebookEdit, web and other tools, so every request carries a smaller tool list. Evidence: no calls to removed tools and a smaller first-call prompt."}

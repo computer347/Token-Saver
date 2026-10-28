@@ -1,0 +1,1 @@
+{"id": "A13", "name": "Haiku explorer subagent", "layer": "file reads", "notes": "A read-only explorer subagent pinned to Haiku. The report checks a Haiku model actually appeared in the run's transcripts."}

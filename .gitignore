@@ -1,0 +1,11 @@
+# Never published: grading material agents must not be able to find, local caches and transcripts.
+**/hidden/
+**/_hidden*/
+build_suite/reference/
+results/kept_runs/
+results/runs.before-limitfix.jsonl
+vendor/
+__pycache__/
+*.pyc
+.tb_token
+results/overnight-*.log

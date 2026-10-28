@@ -1,0 +1,1 @@
+{"id": "A8", "name": "Overnight brief", "layer": "context", "needs_brief": true, "notes": "BRIEF.md is built once per target-repo version by harness/build_brief.py in a separate run; its cost is logged in results/brief_builds.jsonl. Small suite only: it depends on that repo's existing code.", "suites": ["small"]}

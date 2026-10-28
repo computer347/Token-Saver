@@ -1,0 +1,1 @@
+{"permissions": {"allow": ["Bash(python3 tools/scaffold.py *)", "Bash(python tools/scaffold.py *)"]}}

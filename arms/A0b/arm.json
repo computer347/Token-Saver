@@ -1,0 +1,1 @@
+{"id": "A0b", "name": "Baseline copy (A/A check)", "layer": "method check", "notes": "Identical to A0. If the report ever calls it a win or a loss, the statistics are producing false positives at this sample size."}

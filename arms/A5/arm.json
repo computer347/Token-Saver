@@ -1,0 +1,1 @@
+{"id": "A5", "name": "Shell trimming", "layer": "shell", "notes": "PreToolUse hook rewrites test/git commands so only failures and a summary come back. Tool results carry a '[trimmed by A5' marker; the report flags A5 if the marker never appears. On Windows, commands Claude runs through the PowerShell tool are not trimmed (the rewrite is bash syntax)."}

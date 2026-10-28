@@ -1,0 +1,1 @@
+{"id": "R3", "name": "rtk (reference)", "layer": "reference", "enabled": false, "notes": "Not wired up yet: rtk is a separate binary; add a pinned install here before enabling."}

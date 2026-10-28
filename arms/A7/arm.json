@@ -1,0 +1,1 @@
+{"id": "A7", "name": "Combined", "layer": "all", "combine_from_config": true, "notes": "Overlays of the arms listed in config.json 'a7_components', merged. Skipped while that list is empty."}

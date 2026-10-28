@@ -1,0 +1,1 @@
+{"id": "A12", "name": "Generator scripts", "layer": "output", "notes": "tools/scaffold.py writes boilerplate (CLI command stub, test module) so the model doesn't have to type it. Small suite only: it depends on that repo's existing code.", "suites": ["small"]}

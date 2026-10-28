@@ -1,0 +1,1 @@
+Next, add a `--json` flag to the `summary` command. With the flag, print the month's summary as a JSON object with the keys `income`, `expense` and `net` (numbers). Without the flag, keep the current text output exactly as it is. Add a test for the new flag.
