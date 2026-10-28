@@ -1,6 +1,6 @@
 {
-  "time": "2026-10-28T21:47:49",
-  "mode": "full",
+  "time": "2026-10-28T22:38:14",
+  "mode": "full-build",
   "dry_run": false,
   "ok": true,
   "claude_version": "2.1.312 (Claude Code)",
@@ -56,12 +56,6 @@
       "detail": "f8c5e7a1dc \u00b7 directory refuses a submission for, run this command with --profile directory.\n\nThe directory also runs a safety scan and a policy review that this command does not.\n\n\u2714 Validation passed with warnings"
     },
     {
-      "check": "A8 brief available",
-      "ok": true,
-      "critical": true,
-      "detail": "9f41387c982c.md"
-    },
-    {
       "check": "Isolated headless run returns JSON",
       "ok": true,
       "critical": true,
@@ -114,22 +108,22 @@
     "json_usage": {
       "input": 4,
       "output": 84,
-      "cache_read": 39345,
-      "cache_write": 5827,
-      "cache_write_1h": 5827,
+      "cache_read": 39349,
+      "cache_write": 5831,
+      "cache_write_1h": 5831,
       "cache_write_5m": 0
     },
     "transcript_usage": {
-      "cache_write": 5827,
-      "input": 4,
-      "cache_write_1h": 5827,
+      "output": 84,
+      "cache_read": 39349,
       "cache_write_5m": 0,
-      "cache_read": 39345,
-      "output": 84
+      "cache_write": 5831,
+      "cache_write_1h": 5831,
+      "input": 4
     },
-    "cache_write_1h": 5827,
+    "cache_write_1h": 5831,
     "cache_write_5m": 0,
-    "api_cost_usd": 0.056181
+    "api_cost_usd": 0.056213799999999994
   },
   "confounding_env_present": []
 }
