@@ -1,8 +1,8 @@
 {
-  "time": "2026-10-28T22:38:14",
+  "time": "2026-10-29T00:04:35",
   "mode": "full-build",
   "dry_run": false,
-  "ok": true,
+  "ok": false,
   "claude_version": "2.1.312 (Claude Code)",
   "model": "claude-opus-5-5",
   "battery_version": "v8",
@@ -63,9 +63,9 @@
     },
     {
       "check": "Run finished without error",
-      "ok": true,
+      "ok": false,
       "critical": true,
-      "detail": "21"
+      "detail": "Failed to authenticate: OAuth token revoked. Please log in again or contact your administrator."
     },
     {
       "check": "Permissions allow running tests unattended",
@@ -75,9 +75,9 @@
     },
     {
       "check": "Model actually ran the tests (answer is 21)",
-      "ok": true,
+      "ok": false,
       "critical": false,
-      "detail": "21"
+      "detail": "Failed to authenticate: OAuth token revoked. Please log in again or contact your administrator."
     },
     {
       "check": "Transcript found in isolated config dir",
@@ -106,24 +106,24 @@
   ],
   "smoke": {
     "json_usage": {
-      "input": 4,
-      "output": 84,
-      "cache_read": 39349,
-      "cache_write": 5831,
-      "cache_write_1h": 5831,
+      "input": 0,
+      "output": 0,
+      "cache_read": 0,
+      "cache_write": 0,
+      "cache_write_1h": 0,
       "cache_write_5m": 0
     },
     "transcript_usage": {
-      "output": 84,
-      "cache_read": 39349,
+      "input": 0,
+      "cache_read": 0,
       "cache_write_5m": 0,
-      "cache_write": 5831,
-      "cache_write_1h": 5831,
-      "input": 4
+      "cache_write": 0,
+      "output": 0,
+      "cache_write_1h": 0
     },
-    "cache_write_1h": 5831,
+    "cache_write_1h": 0,
     "cache_write_5m": 0,
-    "api_cost_usd": 0.056213799999999994
+    "api_cost_usd": 0
   },
   "confounding_env_present": []
 }
